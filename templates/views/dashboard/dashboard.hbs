@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <body>
+    Dashboard
+    <form action="/admin/logout" method="POST">
+        <button>logout</button>
+    </form>
+
+    <form action="/admin/dashboard/homeCreate" method="POST" enctype="multipart/form-data">
+        Create a Tile in Home Page
+        <input type="file" name="homeImage" required>
+        <input type="text" name="description" required>
+        <button>Submit</button>
+    </form>
+    <br>
+    <form action="/admin/dashboard/news/create" method="POST" enctype="multipart/form-data">
+        Create a News
+        <input type="text" name="title" placeholder="Title" required>
+        <input type="file" name="newsImage" required>
+        <textarea name="content" id="" cols="30" rows="10" placeholder="Body"></textarea>
+        <button>Submit</button>
+    </form>
+</html>
