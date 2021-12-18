@@ -1,0 +1,1626 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]><html class='no-js lt-ie9 lt-ie8 lt-ie7'> <![endif]-->
+<!--[if IE 7]><html class='no-js lt-ie9 lt-ie8'> <![endif]-->
+<!--[if IE 8]><html class='no-js lt-ie9'> <![endif]-->
+<!--[if gt IE 8]><html class='no-js'><![endif]-->
+<html xmlns="https://www.w3.org/1999/xhtml">
+
+<head id="Head1">
+    <title>
+        Mumin Home Page | Idaratut Ta'reef al Shakhsi
+    </title>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+    <meta name='viewport' content='width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no'>
+    <meta name='referrer' content='origin' />
+    <link href='./assets/favicon.ico' type='image/x-icon' rel='shortcut icon' />
+    <link href='https://fonts.googleapis.com/css?family=Alice|Source+Sans+Pro|Material+Icons&display=swap'
+        rel='stylesheet' type='text/css' />
+    <meta name='google-translate-customization' content='eac3e9392e4d5df8-afd04151bf52e1a0-gfe6ec67400a750db-d' />
+    <noscript>
+        <meta HTTP-EQUIV='Refresh' CONTENT='0;URL=/Public/JSError.aspx'>
+    </noscript>
+    <script
+        type='text/javascript'>(function (i, s, o, g, r, a, m) { i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () { (i[r].q = i[r].q || []).push(arguments) }, i[r].l = 1 * new Date(); a = s.createElement(o), m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m) })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga'); ga('create', 'UA-50983018-1', 'its52.com'); ga('send', 'pageview');</script>
+    <link rel='stylesheet' type='text/css' media='all' href='./jscommon/bootstrap/bootstrap.min.css' />
+    <link rel='stylesheet' type='text/css' media='all' href='./jscommon/bootstrap/bootstrap-theme.min.css' />
+    <link rel='stylesheet' type='text/css' media='all' href='./css/1443/main.min.css' />
+    <link rel='stylesheet' type='text/css' media='all' href='./css/hs/highslide.css' />
+    <link rel='stylesheet' type='text/css' media='all' href='./css/style.css' />
+    <link rel='stylesheet' href='./jscommon/jquery/jquery-ui-1.10.3.custom.min.css' />
+    <script type='text/javascript' src='./jscommon/jquery/jquery-1.11.0.min.js'></script>
+    <script type='text/javascript' src='./jscommon/jquery/jquery-ui-1.10.3.custom.min.js'></script>
+    <script type='text/javascript' src='./jscommon/bootstrap/modernizr-2.6.2-respond-1.1.0.min.js'></script>
+    <script type='text/javascript' src='./jscommon/bootstrap/bootstrap.min.js'></script>
+    <script src='./js/1443/common.js' language='javascript' type='text/javascript'></script>
+    <style>
+        /*div.box:hover, div.boxalert:hover {transform: scale(1.03);}*/
+        div.box,
+        div.boxalert {
+            height: 400px;
+        }
+
+        /* #BoxStart_DailyDuas {height:auto !important;} */
+        @media (max-width : 320px) {
+
+            div.box,
+            div.boxalert {
+                height: 100%;
+            }
+        }
+
+        @media (min-width: 321px) and (max-width: 480px) {
+
+            div.box,
+            div.boxalert {
+                height: 100%;
+            }
+        }
+
+        .btn {
+            width: 38% !important;
+        }
+
+        .checkbox {
+            min-width: 40px;
+        }
+    </style>
+    <script type="text/javascript">
+        function jQueryAccordion(id) {
+            $(id).accordion({ heightStyle: "content", collapsible: true, active: false });
+        }
+        function ShowPopUpMsg() { return hs.htmlExpand(document.getElementById("divPopup"), { maincontentId: 'divPopup', headingText: 'Important Message.' }); }
+        function reSizeIframe() {
+            var ifrm = document.getElementById('ifrmOneLogin');
+            if (ifrm) {
+                ifrm.height = ifrm.contentWindow.document.body.scrollHeight + 10;
+                $('#ifrmOneLogin').css('height', ifrm.height);
+            }
+        }
+        function Loading(typ) {
+            if (typ == 1)
+                document.getElementById("divLoader").style.display = 'block';
+            else
+                document.getElementById("divLoader").style.display = 'none';
+        }
+        //hs.maxWidth = 400;
+        $(document).ready(function () {
+            //accordion
+            $("#divaccordion").accordion({ heightStyle: "content", collapsible: true, active: false, animate: 500 });
+            $("#divaccordion1").accordion({ heightStyle: "content", collapsible: true, active: false, animate: 500 });
+            $(function () {
+                $("#divaccordion2").accordion({ heightStyle: "content", collapsible: true, active: true, animate: 500 });
+                //Open First accordion tab opened by default!
+                //$(function () {
+                //    $('#ui-accordion-divaccordion2-header-0').eq(0).trigger('click');
+                //});
+            });
+            //Tooltip
+            $('[data-toggle="tooltip"]').tooltip({ container: 'body' });
+
+            //Disabled Mouse right click on Onelogin
+            //$("#Form1").on("contextmenu", function (e) {return false;});
+            $("#divKalemaatNooraniyah").on("contextmenu", function (e) { return false; });
+            $("#divNooraniPhoto").on("contextmenu", function (e) { return false; });
+            $(".highslide-container").on("contextmenu", function (e) { return false; });
+            $(".highslide-maincontent").on("contextmenu", function (e) { return false; });
+            $(".highslide-dimming").on("contextmenu", function (e) { return false; });
+
+            if ($("#divMyBirthdayWaras").is(":visible") == true) {
+                confetti.start(2000);
+            }
+            $(document).keydown(function (event) {
+                if ((event.keyCode == 123) || (event.ctrlKey && event.shiftKey && event.keyCode == 73) || (event.ctrlKey && event.shiftKey && event.keyCode == 74) || (event.ctrlKey && event.shiftKey) || (event.ctrlKey && event.keyCode == 83)) {
+                    return false;
+                }
+            });
+            //OneLogin
+            try {
+                if (document.getElementById("hdOneLoginURL").value !== "") {
+                    return hs.htmlExpand(document.getElementById("hdOneLoginURL"), { objectType: "iframe", width: 553, height: 435, allowWidthReduction: true, headingText: "", src: document.getElementById('hdOneLoginURL').value });
+                }
+            }
+            catch (err) {
+                //     
+            }
+            //on Click One Login Khatm al quran
+            $(document).on('click', '.btnOLEvent', function (e) {
+                olid = $(this).attr('OLID');
+                $.post("Common/UpdateAjaxData.aspx?QT=1", { name: "One Login", ID: olid },
+                    function (data, status) {
+                        if (status == "success") {
+                            //jQueryMsg('Proceed Clicked', "Data: " + data + "\nStatus: " + status, 2);
+                            e.preventDefault();
+                            e.stopPropagation();
+
+                            //self page redirect
+                            //console.log(data.getElementsByTagName("url")[0].firstChild.data);
+                            window.top.location = data.getElementsByTagName("url")[0].firstChild.data;
+
+                            //Popup
+                            //window.open(data.getElementsByTagName("url")[0].firstChild.data, '_blank');
+
+                            //OneLogin Window
+                            //var OLURL = '/' + "OneloginWindow.aspx?tm=HR3TNFPSOTP3PN5HQ45R2H9TTWV5KOW99P27113101B8JT34Y1XNUC70YTVA9J13S0KWGO14R06190HS0KMYDU6266IPASG0B6BWJ3B1YOTH9XHEMPPDHTD2IO8LY8S92TTS7Q1GB2DXDLLWN250SP2&OLID=" + olid;
+                            //window.top.location = encodeURI(OLURL);
+                        } else {
+                            jQueryMsg('Proceed Clicked Error', "Data: " + data + "\nStatus: " + status, 3);
+                        }
+                    });
+            });
+        });
+        function GetsZiyaratQueueStatus() {
+            var XMLObj = false;
+            var iconZiyarat_Male = document.getElementById("iconZiyarat_Male");
+            var lbZiyarat_Head_Male = document.getElementById("lbZiyarat_Head_Male");
+            var lblZiyarat_Date_Male = document.getElementById("lblZiyarat_Date_Male");
+            var iconZiyarat_Female = document.getElementById("iconZiyarat_Female");
+            var lbZiyarat_Head_Female = document.getElementById("lbZiyarat_Head_Female");
+            var lblZiyarat_Date_Female = document.getElementById("lblZiyarat_Date_Female");
+
+            lbZiyarat_Head_Male.innerHTML = "...";
+            lblZiyarat_Date_Male.innerHTML = "...";
+            lbZiyarat_Head_Female.innerHTML = "...";
+            lblZiyarat_Date_Female.innerHTML = "...";
+
+            if (window.XMLHttpRequest) { XMLObj = new XMLHttpRequest(); }
+            else if (window.ActiveXObject) { XMLObj = new ActiveXObject("Microsoft.XMLHTTP"); }
+
+            if (XMLObj) {
+                XMLObj.open("GET", '/Common/GetDataAjax.aspx?QT=35');
+                XMLObj.onreadystatechange = function () {
+                    if (XMLObj.readyState == 4 && XMLObj.status == 200 && XMLObj.responseXML != null) {
+                        xmlDoc = XMLObj.responseXML;
+                        //Male
+                        iconZiyarat_Male.style.color = xmlDoc.getElementsByTagName("Line_Status")[0].firstChild.data;
+                        lbZiyarat_Head_Male.innerHTML = xmlDoc.getElementsByTagName("Info")[0].firstChild.data;
+                        lbZiyarat_Head_Male.style.color = xmlDoc.getElementsByTagName("Line_Status")[0].firstChild.data;
+
+                        //Female
+                        iconZiyarat_Female.style.color = xmlDoc.getElementsByTagName("Female_Line_Status")[0].firstChild.data;
+                        lbZiyarat_Head_Female.innerHTML = xmlDoc.getElementsByTagName("Female_Line_Info")[0].firstChild.data;
+                        lbZiyarat_Head_Female.style.color = xmlDoc.getElementsByTagName("Female_Line_Status")[0].firstChild.data;
+
+                        //Date
+                        lblZiyarat_Date_Male.innerHTML = xmlDoc.getElementsByTagName("Modify_Date")[0].firstChild.data;
+                        lblZiyarat_Date_Female.innerHTML = xmlDoc.getElementsByTagName("Modify_Date")[0].firstChild.data;
+                        jQueryMsg("Ziyarat Queue Status", "Ziyarat Queue Status has been refreshed successfully", 2, 1);
+                    }
+                }
+                XMLObj.send(null);
+            }
+        }
+        function GetMediaLibrary(txt) {
+            //http://jqueryui.com/autocomplete/#xml			
+            $.ajax({
+                url: "/Common/GetDataAjax.aspx?QT=40&Name=" + txt.value,
+                dataType: "xml",
+                success: function (xmlResponse) {
+                    var data = $("Table", xmlResponse).map(function () {
+                        return {
+                            value: $("media_name", this).text(),
+                            link: $("Media_url", this).text(),
+                            id: $("id", this).text(),
+
+                        };
+                    }).get();
+
+                    $("#txtMediaLibrarySearch").autocomplete({
+                        source: data, minLength: 1,
+                        select: function (event, ui) { window.open(ui.item.link); },
+                    });
+                }
+            });
+        }
+        function LoadSilkeHayaatData() {
+            //alert(1);
+            if (document.getElementById("ddlMonth").value == 'Jamadal Ula') {
+                document.getElementById("divSilk_Image").style.display = '';
+                document.getElementById("imgEdition").src = "https://www.its52.com/imgs/1442/Newsletters/SilkeHayaat_Edition_1.jpg"
+                document.getElementById("lnk12Umoor_AR").href = "https://its52links.blrjmt.in:8493/its/lt?email_communication_id=0&recipient_id=" + document.getElementById("hdLoginEmail").value + "&its_id=" + document.getElementById("hdLoginUser").value + "&link_url=https://www.its52.com/imgs/1442/Newsletters/ARABI.pdf&link_name=12 Umoor Document-Arabic"
+                document.getElementById("lnk12Umoor_LSD").href = "https://its52links.blrjmt.in:8493/its/lt?email_communication_id=0&recipient_id=" + document.getElementById("hdLoginEmail").value + "&its_id=" + document.getElementById("hdLoginUser").value + "&link_url=https://www.its52.com/imgs/1442/Newsletters/LSD.pdf&link_name=12 Umoor Document-Lisan"
+                document.getElementById("lnk12Umoor_EN").href = "https://its52links.blrjmt.in:8493/its/lt?email_communication_id=0&recipient_id=" + document.getElementById("hdLoginEmail").value + "&its_id=" + document.getElementById("hdLoginUser").value + "&link_url=https://www.its52.com/imgs/1442/Newsletters/ENGLISH_FINAL.pdf&link_name=12 Umoor Document-English"
+                document.getElementById("lnk12Umoor_FR").href = "https://its52links.blrjmt.in:8493/its/lt?email_communication_id=0&recipient_id=" + document.getElementById("hdLoginEmail").value + "&its_id=" + document.getElementById("hdLoginUser").value + "&link_url=https://www.its52.com/imgs/1442/Newsletters/FRENCH.pdf&link_name=12 Umoor Document-French"
+                document.getElementById("lnk12Umoor_Guj").href = "https://its52links.blrjmt.in:8493/its/lt?email_communication_id=0&recipient_id=" + document.getElementById("hdLoginEmail").value + "&its_id=" + document.getElementById("hdLoginUser").value + "&link_url=https://www.its52.com/imgs/1442/Newsletters/GUJRATI.pdf&link_name=12 Umoor Document-Gujrati"
+                document.getElementById("lnk12Umoor_Guj").style.display = '';
+            }
+            else if (document.getElementById("ddlMonth").value == 'Jamadal Ukhra') {
+                document.getElementById("divSilk_Image").style.display = '';
+                document.getElementById("imgEdition").src = "https://www.its52.com/imgs/1442/Newsletters/SilkeHayaat_Edition2.jpg"
+                document.getElementById("lnk12Umoor_AR").href = "https://its52links.blrjmt.in:8493/its/lt?email_communication_id=0&recipient_id=" + document.getElementById("hdLoginEmail").value + "&its_id=" + document.getElementById("hdLoginUser").value + "&link_url=https://www.its52.com/imgs/1442/Newsletters/SilkeHayaat_JamadalUkhra_Ar.pdf&link_name=JamadalUkhra-Arabic"
+                document.getElementById("lnk12Umoor_LSD").href = "https://its52links.blrjmt.in:8493/its/lt?email_communication_id=0&recipient_id=" + document.getElementById("hdLoginEmail").value + "&its_id=" + document.getElementById("hdLoginUser").value + "&link_url=https://www.its52.com/imgs/1442/Newsletters/SilkeHayaat_JamadalUkhra_LSD.pdf&link_name=JamadalUkhra-Lisan"
+                document.getElementById("lnk12Umoor_EN").href = "https://its52links.blrjmt.in:8493/its/lt?email_communication_id=0&recipient_id=" + document.getElementById("hdLoginEmail").value + "&its_id=" + document.getElementById("hdLoginUser").value + "&link_url=https://www.its52.com/imgs/1442/Newsletters/SilkeHayaat_JamadalUkhra_Eng.pdf&link_name=JamadalUkhra-English"
+                document.getElementById("lnk12Umoor_FR").href = "https://its52links.blrjmt.in:8493/its/lt?email_communication_id=0&recipient_id=" + document.getElementById("hdLoginEmail").value + "&its_id=" + document.getElementById("hdLoginUser").value + "&link_url=https://www.its52.com/imgs/1442/Newsletters/SilkeHayaat_JamadalUkhra_Fr.pdf&link_name=JamadalUkhra-French"
+                document.getElementById("lnk12Umoor_Guj").href = "https://its52links.blrjmt.in:8493/its/lt?email_communication_id=0&recipient_id=" + document.getElementById("hdLoginEmail").value + "&its_id=" + document.getElementById("hdLoginUser").value + "&link_url=https://www.its52.com/imgs/1442/Newsletters/SilkeHayaat_JamadalUkhra_Guj.pdf&link_name=JamadalUkhra-Gujrati"
+                document.getElementById("lnk12Umoor_Guj").style.display = '';
+            }
+            else if (document.getElementById("ddlMonth").value == 'Rajabul Asab') {
+                document.getElementById("divSilk_Image").style.display = '';
+                document.getElementById("imgEdition").src = "https://www.its52.com/imgs/1442/Newsletters/SilkeHayaat_Edition3.jpg"
+                document.getElementById("lnk12Umoor_AR").href = "https://its52links.blrjmt.in:8493/its/lt?email_communication_id=488&recipient_id=" + document.getElementById("hdLoginEmail").value + "&its_id=" + document.getElementById("hdLoginUser").value + "&link_url=https://www.its52.com/imgs/1442/Newsletters/SilkeHayaat_Rajab_Ar.pdf&link_name=Rajab-Arabic"
+                document.getElementById("lnk12Umoor_LSD").href = "https://its52links.blrjmt.in:8493/its/lt?email_communication_id=488&recipient_id=" + document.getElementById("hdLoginEmail").value + "&its_id=" + document.getElementById("hdLoginUser").value + "&link_url=https://www.its52.com/imgs/1442/Newsletters/SilkeHayaat_Rajab_LSD.pdf&link_name=Rajab-Lisan"
+                document.getElementById("lnk12Umoor_EN").href = "https://its52links.blrjmt.in:8493/its/lt?email_communication_id=488&recipient_id=" + document.getElementById("hdLoginEmail").value + "&its_id=" + document.getElementById("hdLoginUser").value + "&link_url=https://www.its52.com/imgs/1442/Newsletters/SilkeHayaat_Rajab_Eng.pdf&link_name=Rajab-English"
+                document.getElementById("lnk12Umoor_FR").href = "https://its52links.blrjmt.in:8493/its/lt?email_communication_id=488&recipient_id=" + document.getElementById("hdLoginEmail").value + "&its_id=" + document.getElementById("hdLoginUser").value + "&link_url=https://www.its52.com/imgs/1442/Newsletters/SilkeHayaat_Rajab_Fr.pdf&link_name=Rajab-French"
+                document.getElementById("lnk12Umoor_Guj").href = "https://its52links.blrjmt.in:8493/its/lt?email_communication_id=488&recipient_id=" + document.getElementById("hdLoginEmail").value + "&its_id=" + document.getElementById("hdLoginUser").value + "&link_url=https://www.its52.com/imgs/1442/Newsletters/SilkeHayaat_Rajab_Guj.pdf&link_name=Rajab-Gujrati"
+                document.getElementById("lnk12Umoor_Guj").style.display = '';
+            }
+            else if (document.getElementById("ddlMonth").value == 'Shabaan al-Kareem') {
+                document.getElementById("divSilk_Image").style.display = '';
+                document.getElementById("imgEdition").src = "https://www.its52.com/imgs/1442/Newsletters/SilkeHayaat_Edition4.jpg"
+                document.getElementById("lnk12Umoor_AR").href = "https://its52links.blrjmt.in:8493/its/lt?email_communication_id=534&recipient_id=" + document.getElementById("hdLoginEmail").value + "&its_id=" + document.getElementById("hdLoginUser").value + "&link_url=https://www.its52.com/imgs/1442/Newsletters/SilkeHayaat_Shabaan_AR.pdf&link_name=Shabaan-Arabic"
+                document.getElementById("lnk12Umoor_LSD").href = "https://its52links.blrjmt.in:8493/its/lt?email_communication_id=534&recipient_id=" + document.getElementById("hdLoginEmail").value + "&its_id=" + document.getElementById("hdLoginUser").value + "&link_url=https://www.its52.com/imgs/1442/Newsletters/SilkeHayaat_Shabaan_LSD.pdf&link_name=Shabaan-Lisan"
+                document.getElementById("lnk12Umoor_EN").href = "https://its52links.blrjmt.in:8493/its/lt?email_communication_id=534&recipient_id=" + document.getElementById("hdLoginEmail").value + "&its_id=" + document.getElementById("hdLoginUser").value + "&link_url=https://www.its52.com/imgs/1442/Newsletters/SilkeHayaat_Shabaan_Eng.pdf&link_name=Shabaan-English"
+                document.getElementById("lnk12Umoor_FR").href = "https://its52links.blrjmt.in:8493/its/lt?email_communication_id=534&recipient_id=" + document.getElementById("hdLoginEmail").value + "&its_id=" + document.getElementById("hdLoginUser").value + "&link_url=https://www.its52.com/imgs/1442/Newsletters/SilkeHayaat_Shabaan_Fr.pdf&link_name=Shabaan-French"
+                document.getElementById("lnk12Umoor_Guj").href = "https://its52links.blrjmt.in:8493/its/lt?email_communication_id=534&recipient_id=" + document.getElementById("hdLoginEmail").value + "&its_id=" + document.getElementById("hdLoginUser").value + "&link_url=https://www.its52.com/imgs/1442/Newsletters/SilkeHayaat_Shabaan_Guj.pdf&link_name=Shabaan-Gujrati"
+                document.getElementById("lnk12Umoor_Guj").style.display = '';
+            }
+            else if (document.getElementById("ddlMonth").value == 'Shawwalul Mukarram') {
+                document.getElementById("divSilk_Image").style.display = '';
+                document.getElementById("imgEdition").src = "https://www.its52.com/imgs/1442/Newsletters/SilkeHayaat_Edition1.jpg?"
+                document.getElementById("lnk12Umoor_AR").href = "https://its52links.blrjmt.in:8493/its/lt?email_communication_id=0&recipient_id=" + document.getElementById("hdLoginEmail").value + "&its_id=" + document.getElementById("hdLoginUser").value + "&link_url=https://www.its52.com/imgs/1442/Newsletters/SilkeHayaat_Edition1_Ar.pdf&link_name=ShawwalulMukarram-Arabic"
+                document.getElementById("lnk12Umoor_LSD").href = "https://its52links.blrjmt.in:8493/its/lt?email_communication_id=0&recipient_id=" + document.getElementById("hdLoginEmail").value + "&its_id=" + document.getElementById("hdLoginUser").value + "&link_url=https://www.its52.com/imgs/1442/Newsletters/SilkeHayaat_Edition1_LSD.pdf&link_name=ShawwalulMukarram-Lisan"
+                document.getElementById("lnk12Umoor_EN").href = "https://its52links.blrjmt.in:8493/its/lt?email_communication_id=0&recipient_id=" + document.getElementById("hdLoginEmail").value + "&its_id=" + document.getElementById("hdLoginUser").value + "&link_url=https://www.its52.com/imgs/1442/Newsletters/SilkeHayaat_Edition1_Eng.pdf&link_name=ShawwalulMukarram-English"
+                document.getElementById("lnk12Umoor_FR").href = "https://its52links.blrjmt.in:8493/its/lt?email_communication_id=0&recipient_id=" + document.getElementById("hdLoginEmail").value + "&its_id=" + document.getElementById("hdLoginUser").value + "&link_url=https://www.its52.com/imgs/1442/Newsletters/SilkeHayaat_Edition1_FR.pdf&link_name=ShawwalulMukarram-French"
+                document.getElementById("lnk12Umoor_Guj").href = "https://its52links.blrjmt.in:8493/its/lt?email_communication_id=0&recipient_id=" + document.getElementById("hdLoginEmail").value + "&its_id=" + document.getElementById("hdLoginUser").value + "&link_url=https://www.its52.com/imgs/1442/Newsletters/SilkeHayaat_Edition1_GUJ.pdf&link_name=ShawwalulMukarram-Gujrati"
+            }
+            else {
+                alert(document.getElementById("ddlMonth").value);
+                document.getElementById("divSilk_Image").style.display = 'none';
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <form name="Form1" method="post" action=""
+        onkeypress="javascript:return WebForm_FireDefaultButton(event, 'btnValidateOTP')" id="Form1">
+        <div>
+            <input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="" />
+            <input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="" />
+            <input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE"
+                value="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" />
+        </div>
+
+        <script type="text/javascript">
+            //<![CDATA[
+            var theForm = document.forms['Form1'];
+            if (!theForm) {
+                theForm = document.Form1;
+            }
+            function __doPostBack(eventTarget, eventArgument) {
+                if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+                    theForm.__EVENTTARGET.value = eventTarget;
+                    theForm.__EVENTARGUMENT.value = eventArgument;
+                    theForm.submit();
+                }
+            }
+//]]>
+        </script>
+
+
+        <script
+            src="/WebResource.axd?d=eY2K3h03Uq-pR59n9yM1cGF3FPgApP0BbjN_2FOY8_3Qwa-Hiz7ymuilv4PvEWWdDuwh7kGAEDxxHdDHQSLGFZqYVYVFzWyuIUMfz3_1Wzs1&amp;t=637100862046795651"
+            type="text/javascript"></script>
+
+
+        <script
+            src="/WebResource.axd?d=kTbNgc_-dlOH2rDSiElRJHP7JX9WrYt92x0QtAOxIXzJ4Jg8VAnu0RFusTt5j6Kk732i2eoBW4V-FYcYbaWT37l-8VIYrAEoiDEFV3qCR-I1&amp;t=637100862046795651"
+            type="text/javascript"></script>
+        <div>
+
+            <input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="B4EBDE59" />
+            <input type="hidden" name="__VIEWSTATEENCRYPTED" id="__VIEWSTATEENCRYPTED" value="" />
+        </div>
+
+        <header class="header_box">
+            <div class="motif_header"></div>
+            <nav class="navbar main-navbar ">
+                <div class=" container-menu">
+                    <a class='menu-logo-lg' href='/MyMHP.html' title='Idaratut Tareef al Shakhsi'><img
+                            alt='Idaratut Tareef al Shakhsi' src='/assets/ITS Designs/ITS_Logo_Header.png' /></a>
+                    <div class="profile-photo-menu-lg">
+                        <img src="" id="Header1_imgPhoto" alt="profile icon small"
+                            class="img-circle profile-image-small visible-lg visible-md visible-sm" />
+                    </div>
+                    <div class="navbar-header menu-header">
+                        <a class="menu-logo" href="/MyMHP.html" title='Idaratut Tareef al Shakhsi'><img
+                                alt='Idaratut Tareef al Shakhsi' src="/assets/ITS Designs/ITS_Logo_Header.png" /></a>
+                        <div class="profile-main_menu">
+                            <div class="profile-main" data-toggle="collapse" data-target="#profile-navbar">
+                                <div><img src="" id="Header1_imgPhotoMob" alt="Photo"
+                                        class="img-circle profile-photo-menu" /></div>
+                                <div>
+                                    <p class="header-text"><span id="Header1_lblITS_ID">20432049</span> | <span
+                                            id="Header1_lblName">SAIFUDDIN BHAI ZAINUDDIN BHAI DHULIAWALA</span></p>
+                                </div>
+                            </div>
+                        </div>
+                        <button type="button" class="navbar-toggle menu-toggle-icon" data-toggle="collapse"
+                            data-target="#menu-navbar">
+                            <span><i class="material-icons">menu</i></span>
+                        </button>
+                    </div>
+    
+                    <!--Menu Navigation Links Collapse-->
+                    <div class="menu-left collapse navbar-collapse" id="menu-navbar">
+                        <p><span id="Header1_lblITS_ID_Mob">20432049</span> | <span id="Header1_lblNameMob">SAIFUDDIN
+                                BHAI ZAINUDDIN BHAI DHULIAWALA</span></p>
+                        <span id="Header1_spnAdminLinks">
+                            <ul class='nav navbar-nav navbar-left'>
+                                <li><a role='button' href='/MyMHP.html'><i class='material-icons'>home</i> Home</a></li>
+                                <li><a role='button' href='/about.html'><i class='material-icons'>help</i> About</a></li>
+                                <li><a role='button' href='/gallery.html'><i class='material-icons'>filter</i>
+                                        Gallery</a></li>
+                                <li><a role='button' href='/news.html'><i class='material-icons'>insert_invitation</i>
+                                        News</a></li>
+                                <li><a role='button' href='/committee.html'><i class='material-icons'>people</i>
+                                        Committee</a></li>
+                                <li><a id='logout' href='#'><i class='material-icons'>power_settings_new</i> Logout</a>
+                                </li>
+                            </ul>
+                        </span>
+                    </div>
+                </div>
+            </nav>
+            <!-- Banner -->
+            <div id="Header1_dvBanner" class="hero-slider" data-carousel="">
+                <div class='carousel-cell'><img alt='Jamea al Anwar' class='img-lg img-responsive img-centered banner-big'
+                        src='./assets/ITS Designs/Default_1443.jpg' /></div>
+            </div>
+            <div id="Header1_dvBannerMotif" class="motif-central-withBanner">&nbsp;</div>
+    
+        </header>
+        <div class='container'>
+            <div id="divBrowserAlert"></div>
+            <div id="divPopup" class="highslide-maincontent"></div>
+            <input name="hdLoginUser" type="hidden" id="hdLoginUser" value="20432049" />
+            <input name="hdLoginEmail" type="hidden" id="hdLoginEmail" value="hdhuliawala91@gmail.com" />
+
+            <!-- Bethak -->
+
+
+            <!-- Connection Strings -->
+
+
+            <div class="row">
+
+
+
+                <!-- One Login from Client Site -->
+
+
+                <!-- OTP -->
+
+
+                <!-- Ashara Fasal -->
+
+
+                <!-- Ashara Instructions -->
+
+
+                <!-- Ashara Mubaraka 1433H Chartered Flight -->
+
+
+                <!-- Muwasaat Survey -->
+
+
+                <!--Feedback Waaz Karnaar -->
+
+
+                <!-- Safar Mgmt -->
+
+
+                <!-- Safar Allocation -->
+
+
+                <!-- Tehniyat -->
+
+
+                <!-- Istifada Ilmiyah Mumin Registration -->
+
+
+                <!-- Miqaat -->
+                <div id="divMiqaat" class="col-md-4">
+
+                    <div class="row box boxspecial" id="divMiqaat_start" style="">
+                        <span id="divMiqaat_start_divHeading">
+                            <div class='row-with-equal-cell'>
+                                <div class='col-sm-10 padTop10'>
+                                    <h1 style='padding-top:7px'>Miqaat Registration</h1>
+                                </div>
+                                <div class='col-md-2 text-center padTop10' style='margin-left: -50px;'><a
+                                        class='lnkbtn text-center'
+                                        href='https://miqaat.its52.com/ej.aspx?ITSID=wR1bFeRYXZTQaWjkfor1Ig==&type=xPTkrVVBt00=&niyat=0&fn=8[HM]gS1fF34KbBoaf5sF5D[HM]9EZMioNekjbviQ9Vrgw1MB1tIrQuTNm3UlXD9VQFJ7t'>Click
+                                        here</a></div>
+                            </div>
+                            <div class='motif-central col-xs-12'>&nbsp;</div>
+                        </span>
+                        <div class='col-xs-12'>
+                            <div id="divHeadContent"></div>
+                            <span id="DLMiqaatName" style="display:inline-block;width:100%;"><span>
+
+                                </span><span>
+                                    <div id="DLMiqaatName_ctl01_divMiqaatData" class="divborder">
+                                        <div class="text-miqaat row">
+                                            <div class="col-md-12">
+
+                                                <span id="DLMiqaatName_ctl01_lblMiqaatName">
+                                                    <h3 class='miqaat'><i class='material-icons icon36 icondark'
+                                                            style='margin-top: -5px;'>stars</i> Shahadat Maulatena
+                                                        Fatema tuz Zahra AS 1443H., Shareqa (UAE) </h3>
+                                                </span>
+                                            </div>
+                                            <div class="col-md-6 text-center" style="padding: 5px 0px 5px 0px;">
+                                                <i class="material-icons icon24 icondark">today</i>&nbsp;<span
+                                                    id="DLMiqaatName_ctl01_lblEventDate"><span
+                                                        class='text-small'>Tuesday, 10th Jumadal Ula 1443H / 14th Dec
+                                                        2021</span></span>
+                                            </div>
+                                            <div class="col-md-6 text-center" style="padding: 5px 0px 5px 0px;">
+                                                <i class="material-icons icon24 icondark">update</i>&nbsp;<span
+                                                    id="DLMiqaatName_ctl01_lblRegDate"><span class='text-small'>Reg.
+                                                        Ends: 14-Dec-21</span></span>
+                                            </div>
+                                        </div>
+
+
+
+
+
+                                    </div>
+                                </span></span>
+
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Deedar Bethak Sharaf -->
+
+
+                <!-- Misaq Bethak Sharaf -->
+
+
+                <!-- Huzur Misaq -->
+
+
+                <!-- Huzur Misaq New -->
+
+
+                <!-- Nikah Bethak Sharaf -->
+
+
+                <!-- Huzur Vajebaat Bethak 52 -->
+
+
+                <!-- Khatm al quran -->
+
+
+                <!-- Rasme Saifee -->
+
+
+                <!-- Nisbat Registration -->
+
+
+                <!-- My Birthday / Waras -->
+
+
+                <!-- Jamea Imtehaan 1442H -->
+
+
+                <!-- Burhanpur Ticket -->
+
+
+                <!-- Online Scanning -->
+
+
+                <!-- Sherullah 1442H Imamat Namaz Raza -->
+
+
+                <!--Awran Wuzu Namaz-->
+
+
+                <!-- DUD 21 -->
+                <div id="divDUD21" class="col-md-4">
+
+                    <div class="row box boxspecial" id="BoxStartDUD21" style="">
+                        <span id="BoxStartDUD21_divHeading">
+                            <div class='col-xs-12 padTop10'>
+                                <h1>Data Update Drive 2021</h1>
+                            </div>
+                            <div class='motif-central col-xs-12'>&nbsp;</div>
+                        </span>
+                        <div class='col-xs-12'>
+                            <div class="center">
+                                <a href="DataUpdateDrive/List.aspx" title="Data Update Drive 2021">
+                                    <img src="./assets/MyMHP/DUD_2021.png" alt="Data Update Drive 2021"
+                                        class="img-responsive img-centered" style="height:170px;" />
+                                </a>
+                                <div class="center">
+                                    <span class="textred">A 2 Minute Investment can go a Long Way!<br />Help us serve
+                                        you better by updating your data!</span>
+                                </div>
+                                <br />
+
+                                <a id="lnkDUD21" href="DataUpdateDrive/List.aspx" class="btnactive">Click here</a>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Aamil Feedback Survey -->
+
+
+                <!-- Masoolul Moze Transfer Feedback -->
+
+
+                <!-- COVID Vaccine Survey -->
+                <div id="div4" class="col-md-4">
+
+                    <div class="row box boxspecial" id="BoxStart20" style="">
+                        <span id="BoxStart20_divHeading">
+                            <div class='col-xs-12 padTop10'>
+                                <h1>Vaccination Survey</h1>
+                            </div>
+                            <div class='motif-central col-xs-12'>&nbsp;</div>
+                        </span>
+                        <div class='col-xs-12'>
+                            <div class="center">
+                                <h4>Quick Tutorial</h4>
+                                <video id="video_vaccine" controls controlsList="nodownload"
+                                    oncontextmenu="return false;">
+                                    <source src="./assets/MyMHP/Vaccination_Survey.mp4  " type="video/mp4">Your browser
+                                    does not support the video element.
+                                </video><br />
+                                <a href="Transactions/Vaccination_Survey.aspx?UserType=kGN38wS2fls=&Mumin_ID=wR1bFeRYXZTQaWjkfor1Ig==&User_ID=wR1bFeRYXZTQaWjkfor1Ig==&Category=bckp9vEsi1/QaWjkfor1Ig=="
+                                    id="lnk_Vaccine" class="btnactive"
+                                    onclick="javascript:ChangeBtnText(this,&#39;Processing....&#39;,true);"
+                                    style="padding-right: 15px; padding-left: 15px;" target="_blank">Fill Survey</a>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SurveyJS Survey Master -->
+
+
+                <!-- Silk-e-Hayaat -->
+                <div id="divSilkeHayat" class="col-md-4">
+
+                    <div class="row box boxspecial" id="BoxStart11" style="">
+                        <span id="BoxStart11_divHeading">
+                            <div class='col-xs-12 padTop10'>
+                                <h1>Silk-E-Hayaat</h1>
+                            </div>
+                            <div class='motif-central col-xs-12'>&nbsp;</div>
+                        </span>
+                        <div class='col-xs-12'>
+                            <div class="center">
+                                <a href="Apps/SilkeHayaat_Newsletter.aspx" target="_blank"><img
+                                        src="./assets/MyMHP/Silkehayaat.jpg" alt="SilkeHayat" width="135"
+                                        class="img-responsive img-centered" /></a>
+                                <p>
+                                    Starting from Jamadil Ula 1442H - One edition of the 12 Umoor Newsletter named
+                                    Silk-e-Hayaat will be launched on the 16th of each month.
+                                    It will be released in Lisan al Dawat, Arabic, English, French and Gujarati. The
+                                    Newsletter will feature Articles, Interviews and News Excerpts - submitted by
+                                    Mumineen from all across the World.
+                                    You may view the Newsletter from the links given below.
+                                </p>
+
+                                <a href="Apps/SilkeHayaat_Newsletter.aspx" id="lnkSilk_Proceed" target="_blank"
+                                    class="btnactive width100">Proceed</a>
+                                <div id="divSilkeHayat_Data" class="highslide-maincontent center">
+                                    <select name="Month" id="ddlMonth" onchange="LoadSilkeHayaatData();">
+                                        <option value="Shawwalul Mukarram">Shawwalul Mukarram</option>
+                                        <option value="Shabaan al-Kareem">Shabaan al-Kareem</option>
+                                        <option value="Rajabul Asab">Rajabul Asab</option>
+                                        <option value="Jamadal Ukhra">Jamadal Ukhra</option>
+                                        <option value="Jamadal Ula">Jamadal Ula</option>
+                                    </select>
+                                    <br /><br />
+                                    <div class="center" id="divSilk_Image" style="display:none;">
+                                        <img id="imgEdition" alt="Edition" height="452px" />
+                                        <br /><br />
+                                        <a id="lnk12Umoor_AR" target="_blank" visible="false"><img
+                                                src="./assets/MyMHP/BtnArabic.jpg" alt="Arabic" width="100"
+                                                height="33" /></a>
+                                        <a id="lnk12Umoor_LSD" target="_blank"><img src="./assets/MyMHP/BtnLSD.jpg"
+                                                alt="Lisan ud Dawat" width="100" height="33" /></a>
+                                        <a id="lnk12Umoor_EN" target="_blank" style="width:31%" visible="false"><img
+                                                src="./assets/MyMHP/BtnEnglish.jpg" alt="English" width="100"
+                                                height="33" /></a>
+                                        <a id="lnk12Umoor_FR" target="_blank" style="width:31%" visible="false"><img
+                                                src="./assets/MyMHP/BtnFrench.jpg" alt="French" width="100"
+                                                height="33" /></a>
+                                        <a id="lnk12Umoor_Guj" target="_blank" style="width:31%" visible="false"><img
+                                                src="./assets/MyMHP/BtnGujarati.jpg" alt="Gujarati" width="100"
+                                                height="33" /></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Media Library -->
+                <div id="divMediaLibrary" class="col-md-4">
+                    <div class="row box boxspecial" id="BoxStart9011">
+                        <span id="BoxStart9011_divHeading">
+                            <div class='row-with-equal-cell'>
+                                <div class='col-sm-9 padTop10'>
+                                    <h1 style='padding-top:10px'>Media Library</h1>
+                                </div>
+                                <div class='col-sm-3 col-sm-offset-0 padTop10'>
+                                    <div class='text-center'><input id='txtMediaLibrarySearch' type='text'
+                                            onkeydown='GetMediaLibrary(this);' placeholder='Search Media Library'
+                                            style='background: rgba(255, 255, 255, 1) url(./assets/Search.png) no-repeat left 5px center !important; padding-left: 45px; margin-top:5px;' />
+                                    </div>
+                                </div>
+                                <div class='motif-central col-xs-12'>&nbsp;</div>
+                            </div>
+                        </span>
+                        <div class='col-xs-12'>
+                            <div id="divaccordion2">
+                                <h4>Kalemaat Nooraniyah</h4>
+                                <div>
+                                    <asp:Literal ID='ltTableKalemaat Nooraniyah' runat='server' />
+                                    <table cellpadding='5' cellspacing='0' class='tbl'>
+                                        <tr>
+                                        <tr>
+                                            <td class='center'>Kalemaat Nooraniyah Bayaan</td>
+                                            <td class='center'><a
+                                                    href='./assets/MyMHP/SMB_Kalemaat_Nooraniyah_HaresHamdan_Zikar.mp3'
+                                                    target='_blank'><i
+                                                        class='material-icons icon24 icondark'>audiotrack</i></a></td>
+                                        </tr>
+                                        <tr>
+                                            <td class='center'>Kalemaat Nooraniyah Misaal</td>
+                                            <td class='center'><a href='./assets/MyMHP/Vaccination_Survey.mp4'
+                                                    target='_blank'><i
+                                                        class='material-icons icon24 icondark'>audiotrack</i></a></td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <h4>Munajaat Sharif</h4>
+                                <div>
+                                    <asp:Literal ID='ltTableMunajaat Sharif' runat='server' />
+                                    <table cellpadding='5' cellspacing='0' class='tbl'>
+                                        <tr>
+                                        <tr>
+                                            <td class='center'>Qasida Syedna Mohammed Burhanuddin RA - 1442H</td>
+                                            <td class='center'><a
+                                                    href='./assets/MyMHP/Qasida_Syedna_Mohammed_Burhanuddin_RA_1442H.pdf'
+                                                    target='_blank'><i
+                                                        class='material-icons icon24 icondark'>picture_as_pdf</i></a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class='center'>Qasida Syedna Taher Saifuddin RA - 1442H</td>
+                                            <td class='center'><a
+                                                    href='./assets/MyMHP/Qasida_Syedna_Taher_Saifuddin_RA_1442H.pdf'
+                                                    target='_blank'><i
+                                                        class='material-icons icon24 icondark'>picture_as_pdf</i></a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class='center'>Munajaat Syedna Aali Qadr Mufaddal Saifuddin TUS - 1442H
+                                            </td>
+                                            <td class='center'><a
+                                                    href='./assets/MyMHP/Munajaat_Syedna_Aaliqadr_Mufaddal_Saifuddin_TUS_1442H.pdf'
+                                                    target='_blank'><i
+                                                        class='material-icons icon24 icondark'>picture_as_pdf</i></a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class='center'>Munajaat Syedna Taher Saifuddin RA ane Syedna Mohammed
+                                                Burhanuddin RA - 1442H</td>
+                                            <td class='center'><a
+                                                    href='./assets/MyMHP/Munajaat_Syedna_Taher_Saifuddin_RA_Syedna_Mohammed_Burhanuddin_RA_1442H.pdf'
+                                                    target='_blank'><i
+                                                        class='material-icons icon24 icondark'>picture_as_pdf</i></a>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <h4>Daily Duas</h4>
+                                <div>
+                                    <asp:Literal ID='ltTableDaily Duas' runat='server' />
+                                    <table cellpadding='5' cellspacing='0' class='tbl'>
+                                        <tr>
+                                        <tr>
+                                            <td class='center'>Dua Hiyat-E-Qaaf</td>
+                                            <td class='center'><a href='./assets/MyMHP/Dua_Hiyat_E_Qaaf2.pdf'
+                                                    target='_blank'><i
+                                                        class='material-icons icon24 icondark'>picture_as_pdf</i></a><a
+                                                    href='./assets/MyMHP/Dua_Hiyat_E_Qaaf.mp4' target='_blank'><i
+                                                        class='material-icons icon24 icondark'>play_circle_filled</i></a>
+                                            </td>
+                                            <td class='center'></td>
+                                        </tr>
+                                        <tr>
+                                            <td class='center'>Dua Khadeer</td>
+                                            <td class='center'><a href='./assets/MyMHP/Dua_e_Khadeer.pdf'
+                                                    target='_blank'><i
+                                                        class='material-icons icon24 icondark'>picture_as_pdf</i></a>
+                                            </td>
+                                            <td class='center'></td>
+                                        </tr>
+                                        <tr>
+                                            <td class='center'>Dua e Joshan Fri</td>
+                                            <td class='center'><a href='./assets/MyMHP/Dua_e_Joshan_06_Friday.mp3'
+                                                    target='_blank'><i
+                                                        class='material-icons icon24 icondark'>audiotrack</i></a><a
+                                                    href='./assets/MyMHP/Dua_e_Joshan_06_Friday.pdf' target='_blank'><i
+                                                        class='material-icons icon24 icondark'>picture_as_pdf</i></a>
+                                            </td>
+                                            <td class='center'><img style='width:110px;'
+                                                    src='./assets/MyMHP/DuaeJoshan.jpg' />
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class='center'>Dua e Kamil</td>
+                                            <td class='center'><a href='./assets/MyMHP/02-Dua-e-kaamil.mp3'
+                                                    target='_blank'><i
+                                                        class='material-icons icon24 icondark'>audiotrack</i></a><a
+                                                    href='./assets/MyMHP/02-Dua-e-kaamil.pdf' target='_blank'><i
+                                                        class='material-icons icon24 icondark'>picture_as_pdf</i></a>
+                                            </td>
+                                            <td class='center'><img style='width:110px;'
+                                                    src='./assets/MyMHP/DuaeKamil.jpg' />
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class='center'>Surah e Yaseen</td>
+                                            <td class='center'><a href='./assets/MyMHP/Surah_Yaseen.mpeg'
+                                                    target='_blank'><i
+                                                        class='material-icons icon24 icondark'>audiotrack</i></a><a
+                                                    href='./assets/MyMHP/Surah_Yaseen.pdf' target='_blank'><i
+                                                        class='material-icons icon24 icondark'>picture_as_pdf</i></a>
+                                            </td>
+                                            <td class='center'><img style='width:110px;'
+                                                    src='./assets/MyMHP/SuraheYaseen.jpg' />
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <h4>Urs Mubarak Qaseeda</h4>
+                                <div>
+                                    <asp:Literal ID='ltTableUrs Mubarak Qaseeda' runat='server' />
+                                    <table cellpadding='5' cellspacing='0' class='tbl'>
+                                        <tr>
+                                        <tr>
+                                            <td class='center'>15mi Raat Urs Mubarak Ayyam 1443H-r - Syedna Mohammed
+                                                Burhanuddin RA</td>
+                                            <td class='center'><a
+                                                    href='./assets/MyMHP/15mi_raat_Urs_Mubarak_Ayyam_1443H-r.pdf'
+                                                    target='_blank'><i
+                                                        class='material-icons icon24 icondark'>picture_as_pdf</i></a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class='center'>14mi Raat Urs Mubarak Ayyam 1443H - Syedna Mohammed
+                                                Burhanuddin RA</td>
+                                            <td class='center'><a
+                                                    href='./assets/MyMHP/14mi_raat_Urs_Mubarak_Ayyam_1443H-r.pdf'
+                                                    target='_blank'><i
+                                                        class='material-icons icon24 icondark'>picture_as_pdf</i></a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class='center'>13mi Raat Urs Mubarak Ayyam 1443H</td>
+                                            <td class='center'><a
+                                                    href='./assets/MyMHP/13mi_raat_Urs_Mubarak_Ayyam_1443H.pdf'
+                                                    target='_blank'><i
+                                                        class='material-icons icon24 icondark'>picture_as_pdf</i></a>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Online Scanning Mustafedeen -->
+
+
+                <!-- Ziyafat Araz-->
+
+
+                <!-- Araz For Ziyafat -->
+
+
+                <!-- Misbah -->
+                <div id="divMisbah" class="col-md-4">
+
+                    <div class="row box boxspecial" id="BoxStart_Misbah" style="">
+                        <span id="BoxStart_Misbah_divHeading">
+                            <div class='col-xs-12 padTop10'>
+                                <h1>Misbah</h1>
+                            </div>
+                            <div class='motif-central col-xs-12'>&nbsp;</div>
+                        </span>
+                        <div class='col-xs-12'>
+                            <div class="center">
+                                <a target="_blank" href="https://www.instagram.com/misbah_info/"><img
+                                        src="./assets/MyMHP/Instagram_Feed.jpg?v=IF" id="imgMisbah" alt="Misbah"
+                                        title="Click for more Akhbaar" class="img-responsive img-centered"
+                                        width="253" /></a>
+                                <h4 style="font-size:14px; padding-top: 7px;"><span id="lblMisbah_Caption">Ghurrat
+                                        al-Shaher Majlis - Aljamea-tus-Saifiyah, Karachi<br /><a
+                                            href='https://www.instagram.com/misbah_info/' target='_blank'
+                                            style='font-size:14px'>Click for more Akhbaar</a></span></h4>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Important Info -->
+
+
+                <!-- Eid Ul Adha Moula TUS Photo -->
+
+
+                <!-- Attalim Sherullah Quran Daur Certificate -->
+
+
+                <!-- Communication Info -->
+                <div id="divCom" class="col-md-4">
+
+                    <div class="row box boxspecial" id="BoxStart9" style="">
+                        <span id="BoxStart9_divHeading">
+                            <div class='col-xs-12 padTop10'>
+                                <h1>Communication Dashboard <a class='icon'
+                                        href='https://www.its52.com/transactions/communication_rss_feed.aspx?ID=wR1bFeRYXZTQaWjkfor1Ig==&Email=ePszhqM0PLwa0mv1luW/gcIPqZOu747N&Mobile=4Il5cq/Q4BxKqrFK2wnyVA=='
+                                        target='_blank'><i class='material-icons icon24 icondark'>rss_feed</i></a></h1>
+                            </div>
+                            <div class='motif-central col-xs-12'>&nbsp;</div>
+                        </span>
+                        <div class='col-xs-12'>
+                            <iframe id="ifrmCom" width="100%" frameborder="0"
+                                src="Transactions/Communication.aspx?Tag=M"
+                                style="border-radius: 5px;height:290px !important;"></iframe>
+
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Kalemaat Nooraniyah -->
+
+
+                <!-- Lucky Winners -->
+
+
+                <!-- Ashara Mashaik Ziyafat Sharaf -->
+
+
+                <!-- QasreAli Miqaat Registration -->
+
+
+                <!-- DUD Video -->
+
+
+                <!-- Ashara Niyat Survey -->
+
+
+                <!-- Ziyarat Que Status -->
+
+
+                <!-- ITS Forms -->
+
+
+                <!-- Musafirkhana -->
+                <div id="divMusafirkhana" class="col-md-4">
+
+                    <div class="row box boxspecial" id="BoxStart4" style="">
+                        <span id="BoxStart4_divHeading">
+                            <div class='col-xs-12 padTop10'>
+                                <h1>Manazil al Musafereen</h1>
+                            </div>
+                            <div class='motif-central col-xs-12'>&nbsp;</div>
+                        </span>
+                        <div class='col-xs-12'>
+                            <div class="center">
+                                <a href="Apps/Musafir_Khana.aspx" target="_blank"><img
+                                        src="./assets/MyMHP/Musafirkhana.jpg?v=4" alt="Manazil al Musafereen"
+                                        class="img-responsive img-centered" style="height:85px;" /></a>
+                            </div>
+                            <p>
+                                Now finding an abode in Mumbai, is just a CLICK AWAY. Mumineen coming to Mumbai will
+                                find it convenient to view and book a room of your choice and location. Coming to stay
+                                at our Manazils, is just like coming HOME.
+                                All facilities and amenities are well provided in catering to Mumineen’s budget and
+                                choice. Locations in vicinity of Raudat Tahera, Hospitals and Business District.
+                                Would you like to go for a vacation to nearby resorts of Mumbai – Matheran, Lonavala and
+                                Panchgani? <b>Just Select and Click!</b><br />
+                            </p>
+                            <div class="center"><a href="Apps/Musafir_Khana.aspx" class="btnactive">Click here</a></div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ahemdabad Qubba -->
+                <div id="divAhemdabad" class="col-md-4">
+
+                    <div class="row box boxspecial" id="BoxStart2" style="">
+                        <span id="BoxStart2_divHeading">
+                            <div class='col-xs-12 padTop10'>
+                                <h1>Qubba Mubaraka Khidmat</h1>
+                            </div>
+                            <div class='motif-central col-xs-12'>&nbsp;</div>
+                        </span>
+                        <div class='col-xs-12'>
+                            <div class="center">
+                                <a href="./assets/MyMHP/AhmedabadQubbaMisaal.pdf?V1" id="lnkAhmdMisaal"
+                                    target="_blank"><img src="./assets/MyMHP/AhmedabadQubbaMisaal_1.jpg"
+                                        alt="AhmdMisaal" title="Click Here to View Misaal" style="height:190px;"
+                                        class="img-responsive img-centered" /></a><br />
+                                <a href='./assets/MyMHP/AhmedabadQubbaMisaal.pdf?V1' target='_blank'
+                                    style='font-size:14px'>Click Here to View Misaal</a><br />
+                                <a href="https://d2m91yqgilmin6.cloudfront.net?I=MjA0MzIwNDk=&L=U2FpZnVkZGluIGJoYWkgIFphaW51ZGRpbiBiaGFpIERodWxpYXdhbGE=&U=SW5kaWFu"
+                                    id="lnkAhmdProceed" class="btnactive">Araz Here</a>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <!-- QA Topi Size Survey -->
+
+
+                <!-- Data Verification Pending -->
+
+
+                <!-- MHP Services -->
+                <div id="divMHPServices" class="col-md-4">
+
+                    <div class="row box boxspecial" id="BoxStartMHP1" style="">
+                        <span id="BoxStartMHP1_divHeading">
+                            <div class='col-xs-12 padTop10'>
+                                <h1>Services</h1>
+                            </div>
+                            <div class='motif-central col-xs-12'>&nbsp;</div>
+                        </span>
+                        <div class='col-xs-12'>
+                            <div class="row">
+                                <div class="col-xs-3"><a href="Transactions/FamilyMembers.aspx"><i
+                                            class="material-icons mhp-icon">card_giftcard</i></a></div>
+                                <div class="col-xs-9">
+                                    <h4>ITS Smart Card Status</h4>
+                                    <p>New smart card status & card acknowledgement of your family. <a
+                                            href="Transactions/FamilyMembers.aspx" class="clickhere">Click Here</a></p>
+                                    <br />
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-3"><a href="Transactions/Blood_Search.aspx"><i
+                                            class="material-icons mhp-icon">opacity</i></a></div>
+                                <div class="col-xs-9">
+                                    <h4>Blood Group Search</h4>
+                                    <p>In case of emergency your blood can be vital importance to others life. <a
+                                            href="Transactions/Blood_Search.aspx" class="clickhere">Click Here</a></p>
+                                    <br />
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-3"><a href="Lostcard/LostCardHistory.aspx"><i
+                                            class="material-icons mhp-icon">credit_card</i></a></div>
+                                <div class="col-xs-9">
+                                    <h4>Lost Card</h4>
+                                    <p>To apply for a lost ITS Smart Card kindly read all the FAQ and procedures. <a
+                                            href="Lostcard/LostCardHistory.aspx" class="clickhere">Click Here</a></p>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <!-- MHP Updates -->
+                <div id="divMHPUpdates" class="col-md-4">
+
+                    <div class="row box boxspecial" id="BoxStartMHP2" style="">
+                        <span id="BoxStartMHP2_divHeading">
+                            <div class='col-xs-12 padTop10'>
+                                <h1>Updates</h1>
+                            </div>
+                            <div class='motif-central col-xs-12'>&nbsp;</div>
+                        </span>
+                        <div class='col-xs-12'>
+                            <div class="row">
+                                <div class="col-xs-3"><a href="Transactions/FamilyMembers.aspx"><i
+                                            class="material-icons mhp-icon">local_play</i></a></div>
+                                <div class="col-xs-9">
+                                    <h4>Waraqt-ul-Tarkhis</h4>
+                                    <p>Ensure your Waraqt-ul-Tarkhis is updated at all times. <a
+                                            href="Transactions/FamilyMembers.aspx" class="clickhere">Click Here</a></p>
+                                    <br />
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-3"><a href="DataUpdateDrive/S1_Family.aspx"><i
+                                            class="material-icons mhp-icon">account_tree</i></a></div>
+                                <div class="col-xs-9">
+                                    <h4>Family Tree</h4>
+                                    <p>Build your family tree just by adding Father, Mother &amp; Spouse ITS ID in each
+                                        ITS account of your family members. <a href="DataUpdateDrive/S1_Family.aspx"
+                                            class="clickhere">Click Here</a></p><br />
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-3"><a href="DataUpdateDrive/List.aspx"><i
+                                            class="material-icons mhp-icon">account_circle</i></a></div>
+                                <div class="col-xs-9">
+                                    <h4>Data Verification</h4>
+                                    <p>Update Profile &amp; Data Verification of your family members. <a
+                                            href="DataUpdateDrive/List.aspx" class="clickhere">Click Here</a></p>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <!-- MHP DUD & History -->
+                <div id="divMHPDUD" class="col-md-4">
+
+                    <div class="row box boxspecial" id="BoxStartMHPDUD" style="">
+                        <span id="BoxStartMHPDUD_divHeading">
+                            <div class='col-xs-12 padTop10'>
+                                <h1>Data Update & History</h1>
+                            </div>
+                            <div class='motif-central col-xs-12'>&nbsp;</div>
+                        </span>
+                        <div class='col-xs-12'>
+                            <div class="row">
+                                <div class="col-xs-3"><a href="DataUpdateDrive/List.aspx"><i
+                                            class="material-icons mhp-icon">update</i></a></div>
+                                <div class="col-xs-9">
+                                    <h4>Data Update Drive</h4>
+                                    <p>Data needs to be constantly updated!, Let's Join the drive & be a part of <b>Data
+                                            Update Drive 2021.</b> <a href="DataUpdateDrive/List.aspx"
+                                            class="clickhere">Click Here</a></p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-3"><a href="Transactions/AdditionalHomes.aspx"><i
+                                            class="material-icons mhp-icon">add_location</i></a></div>
+                                <div class="col-xs-9">
+                                    <h4>Add Additional Homes</h4>
+                                    <p>Update your additional homes in different cities worldwide. <a
+                                            href="Transactions/AdditionalHomes.aspx" class="clickhere">Click Here</a>
+                                    </p><br />
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-3"><a href="Miqaat/History_Scan.aspx"><i
+                                            class="material-icons mhp-icon">schedule</i></a></div>
+                                <div class="col-xs-9">
+                                    <h4>Ashara Scan History</h4>
+                                    <p><b>Ashara Mubaraka 1441H.</b> & Other Miqaats Scan History at a glance. <a
+                                            href="Miqaat/History_Scan.aspx" class="clickhere">Click Here</a></p>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quran Hifz Niyat -->
+
+
+                <!-- MSB Application Link -->
+                <div id="divMSB" class="col-md-4">
+
+                    <div class="row box boxspecial" id="BoxStart36">
+                        <span id="BoxStart36_divHeading">
+                            <div class='col-xs-12 padTop10'>
+                                <h1>MSB Educational Institute</h1>
+                            </div>
+                            <div class='motif-central col-xs-12'>&nbsp;</div>
+                        </span>
+                        <div class='col-xs-12'>
+                            <div class="center">
+                                <a href="MSB/NewAdmission.aspx" target="_blank"><img src="./assets/MyMHP/MSBLogo.png"
+                                        alt="Al-Madrasa-tus-Saifiya-tul-Burhaniyah" class="img-responsive img-centered"
+                                        style="max-width:75px;" /></a>
+                                <p>Al Madrasa tus Saifiya tul Burhaniyah Educational Institutes are academic
+                                    institutions as par excellence, founded by <b>His Holiness Dr. Syedna Mohammed
+                                        Burhanuddin Saheb (RA)</b>, MSB will endeavour that its pupils acquire knowledge
+                                    from childhood in consonance with Deen. When our student leaves the school his/her
+                                    educational standard is so high that he/she is eligible for admission to the best
+                                    higher educational institutions of the world.</p>
+                                <a href="MSB/NewAdmission.aspx" target="_blank" class="btnactive">Click here</a>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Home Budget -->
+                <div id="divHomeBudget" class="col-md-4">
+
+                    <div class="row box boxspecial" id="BoxStartHomeBudget" style="">
+                        <span id="BoxStartHomeBudget_divHeading">
+                            <div class='col-xs-12 padTop10'>
+                                <h1>Home Budget</h1>
+                            </div>
+                            <div class='motif-central col-xs-12'>&nbsp;</div>
+                        </span>
+                        <div class='col-xs-12'>
+                            <div class="center">
+                                <a href="https://play.google.com/store/apps/details?id=com.mybudget53"
+                                    target="_blank"><img class="img-responsive img-centered"
+                                        src="./assets/MyMHP/Home_Budget_Calculator.png" alt="Home Budget"
+                                        style="max-width:120px;" /></a>
+                                <p>Online financial budgeting calculator cum planner that allows you to calculate your
+                                    monthly household expenses and savings. You can add overall incomes and expenses for
+                                    an in-depth analysis of your spending and saving habits. This Planner has a facility
+                                    to change yearly, monthly, weekly etc. The graph and table shows your year on year
+                                    savings charter.</p>
+                                <div class="col-xs-6">
+                                    <a href='https://play.google.com/store/apps/details?id=com.mybudget53'
+                                        target='_blank'><img class="img-responsive img-centered"
+                                            src="./assets/MyMHP/ITSApp_Googleplay.png" alt="Budget App - Android"
+                                            width='135' /></a>
+                                </div>
+                                <div class="col-xs-6">
+                                    <a href="./assets/MyMHP/Home_Budget_Calculator.xls" class="btnactive"
+                                        target="_blank"><i class="material-icons icon20">insert_drive_file</i> Download
+                                        file</a>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 12 Umoor Registration -->
+                <div id="div12Umoor_Reg" class="col-md-4">
+
+                    <div class="row box boxspecial" id="BoxStart_12Umoor_Reg" style="">
+                        <span id="BoxStart_12Umoor_Reg_divHeading">
+                            <div class='col-xs-12 padTop10'>
+                                <h1>12 Umoor Registration</h1>
+                            </div>
+                            <div class='motif-central col-xs-12'>&nbsp;</div>
+                        </span>
+                        <div class='col-xs-12'>
+                            <div class="center">
+                                <a href="https://www.amalat.com/12umoor/redirect_its52_url.aspx?its_id=20432049&access_key=VciiDGqe2KPMC/yE1dZ2Irjf9wDcDUX5LW+GOpgjfnw="
+                                    id="lnk12Umoorimg"><img src="./assets/MyMHP/12Umoor.png" alt="12 Umoor" width="130"
+                                        class="img-responsive img-centered" /></a>
+                                <p>
+                                    Al-Dai al-Ajal Syedna Qadi al-Noman RA has taught us in Kitabul Himmah that we
+                                    should inform Imam al-Zamaan AS regarding the Khoobio (Skills and Talents) that we
+                                    have, so that he may seek Khidmat from us if he chooses.
+                                    Mumineen can do Araz of their Khoobio in this tab and express their Showq for the
+                                    Khidmat of Aqa Moula (tus)
+                                </p>
+                                <a href="https://www.amalat.com/12umoor/redirect_its52_url.aspx?its_id=20432049&access_key=VciiDGqe2KPMC/yE1dZ2Irjf9wDcDUX5LW+GOpgjfnw="
+                                    id="lnk12Umoorbtn" class="btnactive width150">Proceed</a><br />
+                                <a href="./assets/MyMHP/12Umoor_Brief.pdf" class="tooltips" title="Umoor PDF"
+                                    target="_blank"><i class="material-icons icon36 icondark">picture_as_pdf</i></a>
+                                <a href="./assets/MyMHP/12umoor_Explanation.mp4" class="tooltips"
+                                    title="Explanation Video" target="_blank"><i
+                                        class="material-icons icon36 icondark">video_library</i></a>
+                                <a href="./assets/MyMHP/12Umoor_Registration_Video.mp4" class="tooltips"
+                                    title="Tutorial Video" target="_blank"><i
+                                        class="material-icons icon36 icondark">video_library</i></a>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 12 Umoor Videos -->
+
+
+                <!-- Demo SurveyHero App -->
+
+
+                <!-- BMI Influenza Vaccine -->
+
+
+                <!-- OneLogin -->
+                <div id="divOneLoginMain" class="col-md-4">
+                    <div class="boxloader" id="divLoader">
+                        <div class="boxloadercontent"><img alt="Loading..." src="./assets/loading.gif" />Processing,
+                            please wait...</div>
+                    </div>
+                    <iframe id="ifrmOneLogin" width="100%" height="625" frameborder="0"
+                        src="OneLogin.aspx?SID=3c55sshqs1cz0z2vjjybczz3&amp;HH=1&amp;TMP=OFRLTJ0PV0TO2HQSKIEDADUCITCH1M6CWJ02FX1RBLA51WM2NOQQ8YT"
+                        style="border-radius: 5px;"></iframe>
+                    <input type="hidden" name="hdOneLoginURL" id="hdOneLoginURL" />
+                </div>
+            </div><!-- Main Head Row -->
+
+        </div><!-- Container Closing -->
+
+
+        <script type="text/javascript">
+            //<![CDATA[
+            WebForm_AutoFocus('btnValidateOTP');//]]>
+        </script>
+    </form>
+    <div id="Footer1_footer">
+        <script
+            type='text/javascript'>function googleTranslateElementInit() { new google.translate.TranslateElement({ pageLanguage: 'en', includedLanguages: 'ar,fr', layout: google.translate.TranslateElement.InlineLayout.SIMPLE, gaTrack: true, gaId: 'UA-50983018-1' }, 'google_translate_element'); }</script>
+        <script type='text/javascript'
+            src='//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit'></script>
+    </div>
+    <div id="Footer1_divLoading" class="footerloading">
+        <div class="footerloadingbox">
+            <img alt="Loading..." src="./assets/loading.gif" /> Processing, please wait...
+        </div>
+    </div>
+
+    <div id="Footer1_divNormalUser">
+        <script>
+            function MenuSearchAutoComplete() {
+                var x;
+            }
+            $(document).ready(function () {
+                $("#Form1").on("contextmenu", function (e) {
+                    return false;
+                });
+                $("#form1").on("contextmenu", function (e) {
+                    return false;
+                });
+                $(document).keydown(function (event) {
+                    if (event.keyCode == 123)
+                        return false;
+                    else if ((event.ctrlKey && event.shiftKey && event.keyCode == 73) || (event.ctrlKey && event.shiftKey && event.keyCode == 74) || (event.ctrlKey && event.shiftKey))
+                        return false;
+                });
+            });
+        </script>
+    </div>
+    <i id="back-to-top" class="material-icons iconlight icon-container-square tooltips"
+        title="Go to Top">keyboard_double_arrow_up</i>
+    <footer class="footer_box">
+        <div class="grid footer_container footer__sections">
+            <section class="collapsible collapsible--expanded footer_section">
+                <div class="collapsible__header">
+                    <h2 class="collapsible_heading">CONTACT US</h2>
+                    <span class="collapsible__chevron material-icons icon-container">keyboard_arrow_down</span>
+                </div>
+                <div class="collapsible__content">
+                    <ul class="footer_list">
+                        <li><i class="material-icons icon-footer">call</i><a href="tel:+912268075353">+91 22 6807
+                                5353</a></li>
+                        <li><i class="material-icons icon-footer">mail_outline</i><a
+                                href="mailto:support@its52.com">support@its52.com</a></li>
+                        <li><i class="material-icons icon-footer">access_time</i><a href="#">10 AM - 6 PM IST</a></li>
+                        <li><i class="material-icons icon-footer">location_on</i><a href="/Public/Contactus.aspx">Locate
+                                Us</a></li>
+                    </ul>
+                </div>
+            </section>
+            <section class="collapsible footer_section">
+                <div class="collapsible__header">
+                    <h2 class="collapsible_heading">HELP</h2>
+                    <span class="collapsible__chevron material-icons icon-container">keyboard_arrow_down</span>
+                </div>
+                <div class="collapsible__content">
+                    <ul class="footer_list">
+                        <li><i class="material-icons icon-footer">people</i><a href="/Public/AboutITS.aspx">About us</a>
+                        </li>
+                        <li><i class="material-icons icon-footer">live_help</i><a href="/Public/FAQ.aspx">FAQs</a></li>
+                        <li><i class="material-icons icon-footer">feedback</i><a
+                                href="/Transactions/Feedback.aspx">Feedback</a></li>
+                        <li><i class="material-icons icon-footer">contacts</i><a href="/Public/Idara_Details.aspx">Idara
+                                Contact Details</a></li>
+                    </ul>
+                </div>
+            </section>
+            <section class="collapsible footer_section">
+                <div class="collapsible__header">
+                    <h2 class="collapsible_heading">POLICIES</h2>
+                    <span class="collapsible__chevron material-icons icon-container">keyboard_arrow_down</span>
+                </div>
+                <div class="collapsible__content">
+                    <ul class="footer_list">
+                        <li><i class="material-icons icon-footer">policy</i><a href="./assets/ITS_Privacy_Policy.pdf"
+                                target="_blank">Privacy
+                                Policy</a></li>
+                        <li><i class="material-icons icon-footer">policy</i><a href="./assets/ITS_Cookie_Policy.pdf"
+                                target="_blank">Cookies
+                                Policy</a></li>
+                        <li><i class="material-icons icon-footer">policy</i><a
+                                href="https://www.its52.com/imgs/Policy/ITS_SMS_Opt_InOut_Policy.html"
+                                target="_blank">SMS Opt In/Out Policy</a></li>
+                        <li><i class="material-icons icon-footer">policy</i><a
+                                href="./assets/ITS_MobileApplication_EndUser_Licence_Agreement.pdf"
+                                target="_blank">Mobile App License Agreement</a></li>
+                    </ul>
+                </div>
+            </section>
+            <div class="footer_brand">
+                <a href="/MyMHP.aspx"><img src=./assets/ITS_Logo_Footer.png?v1" /></a>
+            </div>
+            <section class="download_header">
+                <div class="collapsible__header">
+                    <h2 class="collapsible_heading">EXPERIENCE ITS ON</h2>
+                </div>
+                <div class="footer_app">
+                    <div class="footer_icons">
+                        <div class="footer_app_child">
+                            <a href="https://www.instagram.com/its52.official/" target="_blank" class="tooltips"
+                                title="ITS Official Instagram Account">
+                                <img src="./assets/instagram.png?v1" />
+                            </a>
+                        </div>
+                        <div class="footer_app_child">
+                            <a href="https://t.me/its52official" target="_blank" class="tooltips"
+                                title="ITS Official Telegram Account">
+                                <img src="./assets/telegram.png?v1" />
+                            </a>
+                        </div>
+                        <div class="footer_app_child">
+                            <a href="https://play.google.com/store/apps/details?id=com.its52.pushnotifications"
+                                target="_blank" class="tooltips" title="Download ITS App from Google Playstore">
+                                <img src="./assets/playstore.png?v1" />
+                            </a>
+                        </div>
+                        <div class="footer_app_child">
+                            <a href="https://itunes.apple.com/gb/app/its-app/id720041429?mt=8" target="_blank"
+                                class="tooltips" title="Download ITS App from Apple Store">
+                                <img src="./assets/appstore.png?v1" />
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class='row text-center hide-translator'>
+                    <div id='google_translate_element'></div>
+                </div>
+            </section>
+            <div class="footer_copyright">
+                <span>Crafted by: ITS | © Idaratut Ta'reef al Shakshi | All Rights Reserved. | <a
+                        href="./assets/ITS_Terms_Conditions.pdf" target="_blank"> Terms and
+                        Conditions </a></span>
+            </div>
+        </div>
+        <div class="motif_footer"></div>
+    </footer>
+    <div id="NoSession" class="center highslide-maincontent">
+        <h2 class="bold">Your Session has been Expired!</h2>
+        <hr style="margin-bottom:10px;margin-top:10px;" />
+        <div style="float:left;padding-left:10px;">
+            <img src="/GetImage.aspx?ID=tycypMj1cSo=" id="Footer1_imgUserPhoto" class="photo-small img-centered"
+                style="display:inline-block;visibility:visible !important;" alt="No Session" /><br />
+            <span id="Footer1_spnUserMuminID" class="lblejid">20432049</span>
+        </div>
+        <div>
+            <h4 id="Footer1_spnUserName">Saifuddin bhai Zainuddin bhai Dhuliawala</h4>
+            <span id="spnerrMsg" class="textred"></span><br />
+            <input name="Footer1$txtSessionPwd" type="password" id="Footer1_txtSessionPwd" placeholder="Password"
+                class="txtsmall" onkeypress="return doProcess(event)" />
+            <input name="Footer1$btnPwdValidate" type="button" id="Footer1_btnPwdValidate" value="Authenticate"
+                class="btn" onclick="javascript:this.value=&#39;Authenticating...&#39;;ValidatedPassword();"
+                style="width:110px;" />
+            <br />
+            <br />
+            <input name="Footer1$txtOTP" type="password" id="Footer1_txtOTP" placeholder="OTP" style="display:none;"
+                class="txtsmall" />
+            <input name="Footer1$btnOTPValidate" type="button" id="Footer1_btnOTPValidate" value="Authenticate"
+                style="display:none;width:110px;" class="btn"
+                onclick="javascript:this.value=&#39;Authenticating...&#39;;ValidatedOTP();" /><br />
+            <a href="/Logout.aspx" target="_self">Login with different user?</a>
+        </div>
+    </div>
+    <div id="NoInternet" class="center highslide-maincontent">
+        <i class='material-icons red' style='margin-top: -5px;font-size:172px;'>wifi_off</i>
+        <h1 class="red bold">No Internet Connection Found!</h1>
+        <small>Will resume automatically once Internet resume again.</small><br /><br />
+    </div>
+    <script>
+        //$('.count').each(function () { $(this).prop('Counter', 0).animate({ Counter: $(this).text().replace(/,/gi, "") }, { duration: 3000, easing: 'swing', step: function (now) { $(this).text(Math.ceil(now)).replace(/,/gi, ""); } }); });
+        try {
+            $(window).scroll(function () {
+                if ($(this).scrollTop() != 0)
+                    $('#back-to-top').fadeIn();
+                else
+                    $('#back-to-top').fadeOut();
+            });
+
+            $('#back-to-top').click(function () {
+                $('body,html').animate({ scrollTop: 0 }, 753);
+            });
+        }
+        catch (err) {
+            console.log("back top - " + err);
+        }
+
+        var rid;
+        function doProcess(e) {
+            if (e.keyCode == 13) {
+                ValidatedPassword();
+                return false;
+            }
+            return true;
+        }
+        function ValidatedPassword() {
+            document.getElementById("spnerrMsg").innerHTML = "";
+
+            if (document.getElementById("Footer1_txtSessionPwd").value == "") {
+                document.getElementById("spnerrMsg").innerHTML = "Enter Password!";
+                jQueryMsg('Enter Password!', 'Please enter password');
+                return false;
+            }
+
+            var xObj = false;
+            if (window.XMLHttpRequest)
+                xObj = new XMLHttpRequest();
+            else if (window.ActiveXObject)
+                xObj = new ActiveXObject("Microsoft.XMLHTTP");
+
+            if (xObj) {
+                xObj.open("GET", '/GetAjaxSession.aspx?QT=E2DZB&PWD=' + document.getElementById("Footer1_txtSessionPwd").value);
+                xObj.onreadystatechange = function () {
+                    if (xObj.readyState == 4 && xObj.status == 200 && xObj.responseXML != null) {
+                        if (xObj.responseXML.getElementsByTagName("IsValid").length > 0) {
+                            if (xObj.responseXML.getElementsByTagName("IsValid")[0].firstChild.data == "true") {
+                                document.getElementById("spnerrMsg").innerHTML = "<span class='textgreen'>Logged In Successfully!</span>";
+                                jQueryMsg('Success', 'Logged In Successfully!', 2);
+                            }
+                            else {
+                                document.getElementById("spnerrMsg").innerHTML = "Invalid Password!";
+                                jQueryMsg('Invalid Password!', 'Entered Invalid Password');
+                            }
+                        }
+                    }
+                }
+                xObj.send(null);
+            }
+        }
+        function SendOTP() {
+            document.getElementById("spnerrMsg").innerHTML = "";
+
+            var xObj = false;
+            if (window.XMLHttpRequest)
+                xObj = new XMLHttpRequest();
+            else if (window.ActiveXObject)
+                xObj = new ActiveXObject("Microsoft.XMLHTTP");
+
+            if (xObj) {
+                xObj.open("GET", '/GetAjaxSession.aspx?QT=U3UJT');
+                xObj.onreadystatechange = function () {
+                    if (xObj.readyState == 4 && xObj.status == 200 && xObj.responseXML != null) {
+                        if (xObj.responseXML.getElementsByTagName("OTP").length > 0) {
+                            document.getElementById("spnerrMsg").innerHTML = xObj.responseXML.getElementsByTagName("OTP")[0].firstChild.data;
+                            rid = xObj.responseXML.getElementsByTagName("Request_ID")[0].firstChild.data;
+                            if (rid == '0') {
+                                jQueryMsg('Secure Zone!', 'OTP not required', 2);
+                            }
+                            else {
+                                document.getElementById("Footer1_txtOTP").style.display = "";
+                                document.getElementById("Footer1_btnOTPValidate").style.display = "";
+                                document.getElementById("Footer1_btnGetOTP").style.display = "none";
+                            }
+                        }
+                    }
+                }
+                xObj.send(null);
+            }
+        }
+        function ValidatedOTP() {
+            document.getElementById("spnerrMsg").innerHTML = "";
+
+            if (document.getElementById("Footer1_txtOTP").value == "") {
+                document.getElementById("spnerrMsg").innerHTML = "Enter OTP!";
+                jQueryMsg('Enter OTP!', 'Please enter OTP');
+                return false;
+            }
+
+            var xObj = false;
+            if (window.XMLHttpRequest)
+                xObj = new XMLHttpRequest();
+            else if (window.ActiveXObject)
+                xObj = new ActiveXObject("Microsoft.XMLHTTP");
+
+            if (xObj) {
+                xObj.open("GET", '/GetAjaxSession.aspx?QT=B4MKY&OTP=' + document.getElementById("Footer1_txtOTP").value + '&RID=' + rid);
+                xObj.onreadystatechange = function () {
+                    if (xObj.readyState == 4 && xObj.status == 200 && xObj.responseXML != null) {
+                        if (xObj.responseXML.getElementsByTagName("IsValid").length > 0) {
+                            if (xObj.responseXML.getElementsByTagName("IsValid")[0].firstChild.data == "true") {
+                                jQueryMsg('Success', 'Logged In Successfully!', 2);
+                                document.getElementById("spnerrMsg").innerHTML = "<span class='textgreen'>Logged In Successfully!</span>";
+                            }
+                            else {
+                                document.getElementById("spnerrMsg").innerHTML = "Invalid OTP!";
+                                jQueryMsg('Invalid OTP!', 'OTP entered is incorrect');
+                            }
+                        }
+                    }
+                }
+                xObj.send(null);
+            }
+        }
+        //Session
+        var chkloop2 = 0;
+        function checkSession() {
+            var xXMLObj = false;
+            if (window.XMLHttpRequest)
+                xXMLObj = new XMLHttpRequest();
+            else if (window.ActiveXObject)
+                xXMLObj = new ActiveXObject("Microsoft.XMLHTTP");
+
+            if (xXMLObj) {
+                xXMLObj.open("GET", '/GetAjaxSession.aspx?QT=N1FBP');
+                xXMLObj.onreadystatechange = function () {
+                    if (xXMLObj.readyState == 4 && xXMLObj.status == 200 && xXMLObj.responseXML != null) {
+                        if (xXMLObj.responseXML.getElementsByTagName("Session_ID").length > 0) {
+
+                            if (xXMLObj.responseXML.getElementsByTagName("Session_ID")[0].firstChild.data == 1) {
+                                if (chkloop2 == 1) {
+                                    chkloop2 = 0;
+                                    hs.enableKeyListener = true;
+                                    hs.onDimmerClick = function () { return true; }
+                                    return hs.close(document.getElementById("NoSession"))
+                                }
+                            } else if (xXMLObj.responseXML.getElementsByTagName("Session_ID")[0].firstChild.data == 2) {
+                                window.location = '/Logout.aspx';
+                            }
+                            else {
+                                if (chkloop2 == 0) {
+                                    chkloop2 = 1;
+                                    hs.enableKeyListener = false;
+                                    hs.align = 'center';
+                                    hs.onDimmerClick = function () { return false; }
+                                    return hs.htmlExpand(document.getElementById("NoSession"), { allowWidthReduction: true, width: '600', maincontentId: 'NoSession', headingText: '', wrapperClassName: 'no-footer alertBox' })
+                                }
+                            }
+                        }
+                    }
+                }
+                xXMLObj.send(null);
+            }
+        }
+        //Internet
+        var chkloop1 = 0;
+    //     function checkInternet() {
+    //         jQuery.ajaxSetup({ async: false });
+    //         re = "";
+    //         r = Math.round(Math.random() * 10000);
+    //         r1 = Math.round(Math.random() * 1000);
+    //         url = "/imgs/1443/netping.gif?i=" + r;
+
+    //         $.get(url, { subins: r1 }, function (d) {
+    //             re = true;
+    //         }).error(function () {
+    //             re = false;
+    //         });
+
+    //         if (re == true) {
+    //             if (chkloop1 == 1) {
+    //                 chkloop1 = 0;
+    //                 hs.enableKeyListener = true;
+    //                 hs.onDimmerClick = function () { return true; }
+    //                 return hs.close(document.getElementById("NoInternet"))
+    //             }
+    //         }
+    //         else if (re == false) {
+    //             if (chkloop1 == 0) {
+    //                 chkloop1 = 1;
+    //                 hs.enableKeyListener = false;
+    //                 hs.align = 'center';
+    //                 hs.onDimmerClick = function () { return false; }
+    //                 return hs.htmlExpand(document.getElementById("NoInternet"), { allowWidthReduction: true, width: '700', maincontentId: 'NoInternet', headingText: '', wrapperClassName: 'no-footer alertBox' })
+    //             }
+    //         }
+    //     }
+    </script>
+    <script src='./js/highslide-full.js' language='javascript' type='text/javascript'></script>
+
+</body>
+
+</html>
