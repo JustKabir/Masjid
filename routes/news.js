@@ -37,7 +37,9 @@ const newsUpload = multer({
 
 // Middleware
 const adminSigninRequired = require('../middleware/adiminSigninRequired');
+const signinRequired = require('../middleware/signinRequired');
 
-router.post('/news/create', adminSigninRequired , newsUpload.single('newsImage') ,newsController.newsCreate_post);
+router.post('/', adminSigninRequired , newsUpload.single('newsImage') ,newsController.newsCreate_post);
+router.get('/', signinRequired ,newsController.news_get);
 
 module.exports = router;

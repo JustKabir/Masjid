@@ -14,12 +14,12 @@ exports.login_get = (req, res)=>{
 }
 
 exports.login_post = async(req, res)=>{
-    console.log(req.body.id)
-    const player = User.findOne({its: req.body.id})
+    // console.log(req.body.id)
+    const player = User.findOne({its: req.body.txtUserName})
     .then(async (result)=>{
         if(result){
             if(result.type === "admin"){
-                if(await bcrypt.compare(req.body.password, result.password)){
+                if(await bcrypt.compare(req.body.txtPassword, result.password)){
                     var key = process.env.ACCESS_TOKEN_SECRET
                     const user = result.toJSON();
                 const accessToken = jwt.sign(user, key, {

@@ -10,7 +10,8 @@ const signinRequired = require('../middleware/signinRequired');
 // Routes
 router.get('/', signedIn,authController.login_get);
 router.post('/', signedIn,authController.login_post);
-router.post('/logout', signinRequired, authController.logout_post);
+router.get('/committee',signinRequired, authController.com);
+router.get('/logout', signinRequired, authController.logout_post);
 
 
 module.exports = router;

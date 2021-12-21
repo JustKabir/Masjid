@@ -8,16 +8,36 @@
 
     <form action="/admin/dashboard/homeCreate" method="POST" enctype="multipart/form-data">
         Create a Tile in Home Page
+        <input type="text" name="title" placeholder="Title">
         <input type="file" name="homeImage" required>
-        <input type="text" name="description" required>
+        <input type="text" name="description" placeholder="description" required>
         <button>Submit</button>
     </form>
     <br>
-    <form action="/admin/dashboard/news/create" method="POST" enctype="multipart/form-data">
+    <form action="/news" method="POST" enctype="multipart/form-data">
         Create a News
         <input type="text" name="title" placeholder="Title" required>
         <input type="file" name="newsImage" required>
         <textarea name="content" id="" cols="30" rows="10" placeholder="Body"></textarea>
         <button>Submit</button>
+    </form>
+    <br>
+    <form action="/live" method="POST">
+        Start A Live
+        <input type="text" name="link" placeholder="Link" required>
+        <input type="text" name="title" placeholder="Title" required>
+        <button>Submit</button>    
+    </form>
+    <br>
+    <form action="/gallery/images" method="POST"  enctype="multipart/form-data">
+        Add a gallery
+        <input type="file" name="images" multiple >
+        <input type="text" name="folderName" placeholder="Folder Name">
+        <button>Submit</button>
+    </form>
+    <form action="/try" method="POST">
+        TEst
+        <input type="text" name="test[] " id="" multiple>
+        <button>su</button>
     </form>
 </html>

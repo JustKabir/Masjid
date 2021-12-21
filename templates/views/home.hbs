@@ -1,10 +1,795 @@
 <!DOCTYPE html>
-<html>
-    <body>
-    Home
+<!--[if lt IE 7]><html class='no-js lt-ie9 lt-ie8 lt-ie7'> <![endif]-->
+<!--[if IE 7]><html class='no-js lt-ie9 lt-ie8'> <![endif]-->
+<!--[if IE 8]><html class='no-js lt-ie9'> <![endif]-->
+<!--[if gt IE 8]><html class='no-js'><![endif]-->
+<html xmlns="https://www.w3.org/1999/xhtml">
 
-    <form action="/logout" method="POST">
-        <button>logout</button>
+<head id="Head1">
+    <title>
+        Mumin Home Page | Idaratut Ta'reef al Shakhsi
+    </title>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+    <meta name='viewport' content='width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no'>
+    <meta name='referrer' content='origin' />
+    <link href='assets/favicon.ico' type='image/x-icon' rel='shortcut icon' />
+    <link href='https://fonts.googleapis.com/css?family=Alice|Source+Sans+Pro|Material+Icons&display=swap'
+        rel='stylesheet' type='text/css' />
+    <meta name='google-translate-customization' content='eac3e9392e4d5df8-afd04151bf52e1a0-gfe6ec67400a750db-d' />
+    <noscript>
+        <meta HTTP-EQUIV='Refresh' CONTENT='0;URL=/Public/JSError.aspx'>
+    </noscript>
+    <script
+        type='text/javascript'>(function (i, s, o, g, r, a, m) { i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () { (i[r].q = i[r].q || []).push(arguments) }, i[r].l = 1 * new Date(); a = s.createElement(o), m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m) })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga'); ga('create', 'UA-50983018-1', 'its52.com'); ga('send', 'pageview');</script>
+    <link rel='stylesheet' type='text/css' media='all' href='jscommon/bootstrap/bootstrap.min.css' />
+    <link rel='stylesheet' type='text/css' media='all' href='jscommon/bootstrap/bootstrap-theme.min.css' />
+    <link rel='stylesheet' type='text/css' media='all' href='css/1443/main.min.css' />
+    <link rel='stylesheet' type='text/css' media='all' href='css/hs/highslide.css' />
+    <link rel='stylesheet' type='text/css' media='all' href='css/style.css' />
+    <link rel='stylesheet' href='jscommon/jquery/jquery-ui-1.10.3.custom.min.css' />
+    <script type='text/javascript' src='jscommon/jquery/jquery-1.11.0.min.js'></script>
+    <script type='text/javascript' src='jscommon/jquery/jquery-ui-1.10.3.custom.min.js'></script>
+    <script type='text/javascript' src='jscommon/bootstrap/modernizr-2.6.2-respond-1.1.0.min.js'></script>
+    <script type='text/javascript' src='jscommon/bootstrap/bootstrap.min.js'></script>
+    <script src='js/1443/common.js' language='javascript' type='text/javascript'></script>
+    <style>
+        /*div.box:hover, div.boxalert:hover {transform: scale(1.03);}*/
+        div.box,
+        div.boxalert {
+            height: 400px;
+        }
+
+        /* #BoxStart_DailyDuas {height:auto !important;} */
+        @media (max-width : 320px) {
+
+            div.box,
+            div.boxalert {
+                height: 100%;
+            }
+        }
+
+        @media (min-width: 321px) and (max-width: 480px) {
+
+            div.box,
+            div.boxalert {
+                height: 100%;
+            }
+        }
+
+        .btn {
+            width: 38% !important;
+        }
+
+        .checkbox {
+            min-width: 40px;
+        }
+    </style>
+    <script type="text/javascript">
+        function jQueryAccordion(id) {
+            $(id).accordion({ heightStyle: "content", collapsible: true, active: false });
+        }
+        function ShowPopUpMsg() { return hs.htmlExpand(document.getElementById("divPopup"), { maincontentId: 'divPopup', headingText: 'Important Message.' }); }
+        function reSizeIframe() {
+            var ifrm = document.getElementById('ifrmOneLogin');
+            if (ifrm) {
+                ifrm.height = ifrm.contentWindow.document.body.scrollHeight + 10;
+                $('#ifrmOneLogin').css('height', ifrm.height);
+            }
+        }
+        function Loading(typ) {
+            if (typ == 1)
+                document.getElementById("divLoader").style.display = 'block';
+            else
+                document.getElementById("divLoader").style.display = 'none';
+        }
+        //hs.maxWidth = 400;
+        $(document).ready(function () {
+            //accordion
+            $("#divaccordion").accordion({ heightStyle: "content", collapsible: true, active: false, animate: 500 });
+            $("#divaccordion1").accordion({ heightStyle: "content", collapsible: true, active: false, animate: 500 });
+            $(function () {
+                $("#divaccordion2").accordion({ heightStyle: "content", collapsible: true, active: true, animate: 500 });
+                //Open First accordion tab opened by default!
+                //$(function () {
+                //    $('#ui-accordion-divaccordion2-header-0').eq(0).trigger('click');
+                //});
+            });
+            //Tooltip
+            $('[data-toggle="tooltip"]').tooltip({ container: 'body' });
+
+            //Disabled Mouse right click on Onelogin
+            //$("#Form1").on("contextmenu", function (e) {return false;});
+            $("#divKalemaatNooraniyah").on("contextmenu", function (e) { return false; });
+            $("#divNooraniPhoto").on("contextmenu", function (e) { return false; });
+            $(".highslide-container").on("contextmenu", function (e) { return false; });
+            $(".highslide-maincontent").on("contextmenu", function (e) { return false; });
+            $(".highslide-dimming").on("contextmenu", function (e) { return false; });
+
+            if ($("#divMyBirthdayWaras").is(":visible") == true) {
+                confetti.start(2000);
+            }
+            $(document).keydown(function (event) {
+                if ((event.keyCode == 123) || (event.ctrlKey && event.shiftKey && event.keyCode == 73) || (event.ctrlKey && event.shiftKey && event.keyCode == 74) || (event.ctrlKey && event.shiftKey) || (event.ctrlKey && event.keyCode == 83)) {
+                    return false;
+                }
+            });
+            //OneLogin
+            try {
+                if (document.getElementById("hdOneLoginURL").value !== "") {
+                    return hs.htmlExpand(document.getElementById("hdOneLoginURL"), { objectType: "iframe", width: 553, height: 435, allowWidthReduction: true, headingText: "", src: document.getElementById('hdOneLoginURL').value });
+                }
+            }
+            catch (err) {
+                //     
+            }
+            //on Click One Login Khatm al quran
+            $(document).on('click', '.btnOLEvent', function (e) {
+                olid = $(this).attr('OLID');
+                $.post("Common/UpdateAjaxData.aspx?QT=1", { name: "One Login", ID: olid },
+                    function (data, status) {
+                        if (status == "success") {
+                            //jQueryMsg('Proceed Clicked', "Data: " + data + "\nStatus: " + status, 2);
+                            e.preventDefault();
+                            e.stopPropagation();
+
+                            //self page redirect
+                            //console.log(data.getElementsByTagName("url")[0].firstChild.data);
+                            window.top.location = data.getElementsByTagName("url")[0].firstChild.data;
+
+                            //Popup
+                            //window.open(data.getElementsByTagName("url")[0].firstChild.data, '_blank');
+
+                            //OneLogin Window
+                            //var OLURL = '/' + "OneloginWindow.aspx?tm=HR3TNFPSOTP3PN5HQ45R2H9TTWV5KOW99P27113101B8JT34Y1XNUC70YTVA9J13S0KWGO14R06190HS0KMYDU6266IPASG0B6BWJ3B1YOTH9XHEMPPDHTD2IO8LY8S92TTS7Q1GB2DXDLLWN250SP2&OLID=" + olid;
+                            //window.top.location = encodeURI(OLURL);
+                        } else {
+                            jQueryMsg('Proceed Clicked Error', "Data: " + data + "\nStatus: " + status, 3);
+                        }
+                    });
+            });
+        });
+        function GetsZiyaratQueueStatus() {
+            var XMLObj = false;
+            var iconZiyarat_Male = document.getElementById("iconZiyarat_Male");
+            var lbZiyarat_Head_Male = document.getElementById("lbZiyarat_Head_Male");
+            var lblZiyarat_Date_Male = document.getElementById("lblZiyarat_Date_Male");
+            var iconZiyarat_Female = document.getElementById("iconZiyarat_Female");
+            var lbZiyarat_Head_Female = document.getElementById("lbZiyarat_Head_Female");
+            var lblZiyarat_Date_Female = document.getElementById("lblZiyarat_Date_Female");
+
+            lbZiyarat_Head_Male.innerHTML = "...";
+            lblZiyarat_Date_Male.innerHTML = "...";
+            lbZiyarat_Head_Female.innerHTML = "...";
+            lblZiyarat_Date_Female.innerHTML = "...";
+
+            if (window.XMLHttpRequest) { XMLObj = new XMLHttpRequest(); }
+            else if (window.ActiveXObject) { XMLObj = new ActiveXObject("Microsoft.XMLHTTP"); }
+
+            if (XMLObj) {
+                XMLObj.open("GET", '/Common/GetDataAjax.aspx?QT=35');
+                XMLObj.onreadystatechange = function () {
+                    if (XMLObj.readyState == 4 && XMLObj.status == 200 && XMLObj.responseXML != null) {
+                        xmlDoc = XMLObj.responseXML;
+                        //Male
+                        iconZiyarat_Male.style.color = xmlDoc.getElementsByTagName("Line_Status")[0].firstChild.data;
+                        lbZiyarat_Head_Male.innerHTML = xmlDoc.getElementsByTagName("Info")[0].firstChild.data;
+                        lbZiyarat_Head_Male.style.color = xmlDoc.getElementsByTagName("Line_Status")[0].firstChild.data;
+
+                        //Female
+                        iconZiyarat_Female.style.color = xmlDoc.getElementsByTagName("Female_Line_Status")[0].firstChild.data;
+                        lbZiyarat_Head_Female.innerHTML = xmlDoc.getElementsByTagName("Female_Line_Info")[0].firstChild.data;
+                        lbZiyarat_Head_Female.style.color = xmlDoc.getElementsByTagName("Female_Line_Status")[0].firstChild.data;
+
+                        //Date
+                        lblZiyarat_Date_Male.innerHTML = xmlDoc.getElementsByTagName("Modify_Date")[0].firstChild.data;
+                        lblZiyarat_Date_Female.innerHTML = xmlDoc.getElementsByTagName("Modify_Date")[0].firstChild.data;
+                        jQueryMsg("Ziyarat Queue Status", "Ziyarat Queue Status has been refreshed successfully", 2, 1);
+                    }
+                }
+                XMLObj.send(null);
+            }
+        }
+        function GetMediaLibrary(txt) {
+            //http://jqueryui.com/autocomplete/#xml			
+            $.ajax({
+                url: "/Common/GetDataAjax.aspx?QT=40&Name=" + txt.value,
+                dataType: "xml",
+                success: function (xmlResponse) {
+                    var data = $("Table", xmlResponse).map(function () {
+                        return {
+                            value: $("media_name", this).text(),
+                            link: $("Media_url", this).text(),
+                            id: $("id", this).text(),
+
+                        };
+                    }).get();
+
+                    $("#txtMediaLibrarySearch").autocomplete({
+                        source: data, minLength: 1,
+                        select: function (event, ui) { window.open(ui.item.link); },
+                    });
+                }
+            });
+        }
+        function LoadSilkeHayaatData() {
+            //alert(1);
+            if (document.getElementById("ddlMonth").value == 'Jamadal Ula') {
+                document.getElementById("divSilk_Image").style.display = '';
+                document.getElementById("imgEdition").src = "https://www.its52.com/imgs/1442/Newsletters/SilkeHayaat_Edition_1.jpg"
+                document.getElementById("lnk12Umoor_AR").href = "https://its52links.blrjmt.in:8493/its/lt?email_communication_id=0&recipient_id=" + document.getElementById("hdLoginEmail").value + "&its_id=" + document.getElementById("hdLoginUser").value + "&link_url=https://www.its52.com/imgs/1442/Newsletters/ARABI.pdf&link_name=12 Umoor Document-Arabic"
+                document.getElementById("lnk12Umoor_LSD").href = "https://its52links.blrjmt.in:8493/its/lt?email_communication_id=0&recipient_id=" + document.getElementById("hdLoginEmail").value + "&its_id=" + document.getElementById("hdLoginUser").value + "&link_url=https://www.its52.com/imgs/1442/Newsletters/LSD.pdf&link_name=12 Umoor Document-Lisan"
+                document.getElementById("lnk12Umoor_EN").href = "https://its52links.blrjmt.in:8493/its/lt?email_communication_id=0&recipient_id=" + document.getElementById("hdLoginEmail").value + "&its_id=" + document.getElementById("hdLoginUser").value + "&link_url=https://www.its52.com/imgs/1442/Newsletters/ENGLISH_FINAL.pdf&link_name=12 Umoor Document-English"
+                document.getElementById("lnk12Umoor_FR").href = "https://its52links.blrjmt.in:8493/its/lt?email_communication_id=0&recipient_id=" + document.getElementById("hdLoginEmail").value + "&its_id=" + document.getElementById("hdLoginUser").value + "&link_url=https://www.its52.com/imgs/1442/Newsletters/FRENCH.pdf&link_name=12 Umoor Document-French"
+                document.getElementById("lnk12Umoor_Guj").href = "https://its52links.blrjmt.in:8493/its/lt?email_communication_id=0&recipient_id=" + document.getElementById("hdLoginEmail").value + "&its_id=" + document.getElementById("hdLoginUser").value + "&link_url=https://www.its52.com/imgs/1442/Newsletters/GUJRATI.pdf&link_name=12 Umoor Document-Gujrati"
+                document.getElementById("lnk12Umoor_Guj").style.display = '';
+            }
+            else if (document.getElementById("ddlMonth").value == 'Jamadal Ukhra') {
+                document.getElementById("divSilk_Image").style.display = '';
+                document.getElementById("imgEdition").src = "https://www.its52.com/imgs/1442/Newsletters/SilkeHayaat_Edition2.jpg"
+                document.getElementById("lnk12Umoor_AR").href = "https://its52links.blrjmt.in:8493/its/lt?email_communication_id=0&recipient_id=" + document.getElementById("hdLoginEmail").value + "&its_id=" + document.getElementById("hdLoginUser").value + "&link_url=https://www.its52.com/imgs/1442/Newsletters/SilkeHayaat_JamadalUkhra_Ar.pdf&link_name=JamadalUkhra-Arabic"
+                document.getElementById("lnk12Umoor_LSD").href = "https://its52links.blrjmt.in:8493/its/lt?email_communication_id=0&recipient_id=" + document.getElementById("hdLoginEmail").value + "&its_id=" + document.getElementById("hdLoginUser").value + "&link_url=https://www.its52.com/imgs/1442/Newsletters/SilkeHayaat_JamadalUkhra_LSD.pdf&link_name=JamadalUkhra-Lisan"
+                document.getElementById("lnk12Umoor_EN").href = "https://its52links.blrjmt.in:8493/its/lt?email_communication_id=0&recipient_id=" + document.getElementById("hdLoginEmail").value + "&its_id=" + document.getElementById("hdLoginUser").value + "&link_url=https://www.its52.com/imgs/1442/Newsletters/SilkeHayaat_JamadalUkhra_Eng.pdf&link_name=JamadalUkhra-English"
+                document.getElementById("lnk12Umoor_FR").href = "https://its52links.blrjmt.in:8493/its/lt?email_communication_id=0&recipient_id=" + document.getElementById("hdLoginEmail").value + "&its_id=" + document.getElementById("hdLoginUser").value + "&link_url=https://www.its52.com/imgs/1442/Newsletters/SilkeHayaat_JamadalUkhra_Fr.pdf&link_name=JamadalUkhra-French"
+                document.getElementById("lnk12Umoor_Guj").href = "https://its52links.blrjmt.in:8493/its/lt?email_communication_id=0&recipient_id=" + document.getElementById("hdLoginEmail").value + "&its_id=" + document.getElementById("hdLoginUser").value + "&link_url=https://www.its52.com/imgs/1442/Newsletters/SilkeHayaat_JamadalUkhra_Guj.pdf&link_name=JamadalUkhra-Gujrati"
+                document.getElementById("lnk12Umoor_Guj").style.display = '';
+            }
+            else if (document.getElementById("ddlMonth").value == 'Rajabul Asab') {
+                document.getElementById("divSilk_Image").style.display = '';
+                document.getElementById("imgEdition").src = "https://www.its52.com/imgs/1442/Newsletters/SilkeHayaat_Edition3.jpg"
+                document.getElementById("lnk12Umoor_AR").href = "https://its52links.blrjmt.in:8493/its/lt?email_communication_id=488&recipient_id=" + document.getElementById("hdLoginEmail").value + "&its_id=" + document.getElementById("hdLoginUser").value + "&link_url=https://www.its52.com/imgs/1442/Newsletters/SilkeHayaat_Rajab_Ar.pdf&link_name=Rajab-Arabic"
+                document.getElementById("lnk12Umoor_LSD").href = "https://its52links.blrjmt.in:8493/its/lt?email_communication_id=488&recipient_id=" + document.getElementById("hdLoginEmail").value + "&its_id=" + document.getElementById("hdLoginUser").value + "&link_url=https://www.its52.com/imgs/1442/Newsletters/SilkeHayaat_Rajab_LSD.pdf&link_name=Rajab-Lisan"
+                document.getElementById("lnk12Umoor_EN").href = "https://its52links.blrjmt.in:8493/its/lt?email_communication_id=488&recipient_id=" + document.getElementById("hdLoginEmail").value + "&its_id=" + document.getElementById("hdLoginUser").value + "&link_url=https://www.its52.com/imgs/1442/Newsletters/SilkeHayaat_Rajab_Eng.pdf&link_name=Rajab-English"
+                document.getElementById("lnk12Umoor_FR").href = "https://its52links.blrjmt.in:8493/its/lt?email_communication_id=488&recipient_id=" + document.getElementById("hdLoginEmail").value + "&its_id=" + document.getElementById("hdLoginUser").value + "&link_url=https://www.its52.com/imgs/1442/Newsletters/SilkeHayaat_Rajab_Fr.pdf&link_name=Rajab-French"
+                document.getElementById("lnk12Umoor_Guj").href = "https://its52links.blrjmt.in:8493/its/lt?email_communication_id=488&recipient_id=" + document.getElementById("hdLoginEmail").value + "&its_id=" + document.getElementById("hdLoginUser").value + "&link_url=https://www.its52.com/imgs/1442/Newsletters/SilkeHayaat_Rajab_Guj.pdf&link_name=Rajab-Gujrati"
+                document.getElementById("lnk12Umoor_Guj").style.display = '';
+            }
+            else if (document.getElementById("ddlMonth").value == 'Shabaan al-Kareem') {
+                document.getElementById("divSilk_Image").style.display = '';
+                document.getElementById("imgEdition").src = "https://www.its52.com/imgs/1442/Newsletters/SilkeHayaat_Edition4.jpg"
+                document.getElementById("lnk12Umoor_AR").href = "https://its52links.blrjmt.in:8493/its/lt?email_communication_id=534&recipient_id=" + document.getElementById("hdLoginEmail").value + "&its_id=" + document.getElementById("hdLoginUser").value + "&link_url=https://www.its52.com/imgs/1442/Newsletters/SilkeHayaat_Shabaan_AR.pdf&link_name=Shabaan-Arabic"
+                document.getElementById("lnk12Umoor_LSD").href = "https://its52links.blrjmt.in:8493/its/lt?email_communication_id=534&recipient_id=" + document.getElementById("hdLoginEmail").value + "&its_id=" + document.getElementById("hdLoginUser").value + "&link_url=https://www.its52.com/imgs/1442/Newsletters/SilkeHayaat_Shabaan_LSD.pdf&link_name=Shabaan-Lisan"
+                document.getElementById("lnk12Umoor_EN").href = "https://its52links.blrjmt.in:8493/its/lt?email_communication_id=534&recipient_id=" + document.getElementById("hdLoginEmail").value + "&its_id=" + document.getElementById("hdLoginUser").value + "&link_url=https://www.its52.com/imgs/1442/Newsletters/SilkeHayaat_Shabaan_Eng.pdf&link_name=Shabaan-English"
+                document.getElementById("lnk12Umoor_FR").href = "https://its52links.blrjmt.in:8493/its/lt?email_communication_id=534&recipient_id=" + document.getElementById("hdLoginEmail").value + "&its_id=" + document.getElementById("hdLoginUser").value + "&link_url=https://www.its52.com/imgs/1442/Newsletters/SilkeHayaat_Shabaan_Fr.pdf&link_name=Shabaan-French"
+                document.getElementById("lnk12Umoor_Guj").href = "https://its52links.blrjmt.in:8493/its/lt?email_communication_id=534&recipient_id=" + document.getElementById("hdLoginEmail").value + "&its_id=" + document.getElementById("hdLoginUser").value + "&link_url=https://www.its52.com/imgs/1442/Newsletters/SilkeHayaat_Shabaan_Guj.pdf&link_name=Shabaan-Gujrati"
+                document.getElementById("lnk12Umoor_Guj").style.display = '';
+            }
+            else if (document.getElementById("ddlMonth").value == 'Shawwalul Mukarram') {
+                document.getElementById("divSilk_Image").style.display = '';
+                document.getElementById("imgEdition").src = "https://www.its52.com/imgs/1442/Newsletters/SilkeHayaat_Edition1.jpg?"
+                document.getElementById("lnk12Umoor_AR").href = "https://its52links.blrjmt.in:8493/its/lt?email_communication_id=0&recipient_id=" + document.getElementById("hdLoginEmail").value + "&its_id=" + document.getElementById("hdLoginUser").value + "&link_url=https://www.its52.com/imgs/1442/Newsletters/SilkeHayaat_Edition1_Ar.pdf&link_name=ShawwalulMukarram-Arabic"
+                document.getElementById("lnk12Umoor_LSD").href = "https://its52links.blrjmt.in:8493/its/lt?email_communication_id=0&recipient_id=" + document.getElementById("hdLoginEmail").value + "&its_id=" + document.getElementById("hdLoginUser").value + "&link_url=https://www.its52.com/imgs/1442/Newsletters/SilkeHayaat_Edition1_LSD.pdf&link_name=ShawwalulMukarram-Lisan"
+                document.getElementById("lnk12Umoor_EN").href = "https://its52links.blrjmt.in:8493/its/lt?email_communication_id=0&recipient_id=" + document.getElementById("hdLoginEmail").value + "&its_id=" + document.getElementById("hdLoginUser").value + "&link_url=https://www.its52.com/imgs/1442/Newsletters/SilkeHayaat_Edition1_Eng.pdf&link_name=ShawwalulMukarram-English"
+                document.getElementById("lnk12Umoor_FR").href = "https://its52links.blrjmt.in:8493/its/lt?email_communication_id=0&recipient_id=" + document.getElementById("hdLoginEmail").value + "&its_id=" + document.getElementById("hdLoginUser").value + "&link_url=https://www.its52.com/imgs/1442/Newsletters/SilkeHayaat_Edition1_FR.pdf&link_name=ShawwalulMukarram-French"
+                document.getElementById("lnk12Umoor_Guj").href = "https://its52links.blrjmt.in:8493/its/lt?email_communication_id=0&recipient_id=" + document.getElementById("hdLoginEmail").value + "&its_id=" + document.getElementById("hdLoginUser").value + "&link_url=https://www.its52.com/imgs/1442/Newsletters/SilkeHayaat_Edition1_GUJ.pdf&link_name=ShawwalulMukarram-Gujrati"
+            }
+            else {
+                alert(document.getElementById("ddlMonth").value);
+                document.getElementById("divSilk_Image").style.display = 'none';
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <form name="Form1" method="post" action=""
+        onkeypress="javascript:return WebForm_FireDefaultButton(event, 'btnValidateOTP')" id="Form1">
+        <div>
+            <input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="" />
+            <input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="" />
+            <input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE">
+        </div>
+
+        <script type="text/javascript">
+            //<![CDATA[
+            var theForm = document.forms['Form1'];
+            if (!theForm) {
+                theForm = document.Form1;
+            }
+            function __doPostBack(eventTarget, eventArgument) {
+                if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+                    theForm.__EVENTTARGET.value = eventTarget;
+                    theForm.__EVENTARGUMENT.value = eventArgument;
+                    theForm.submit();
+                }
+            }
+//]]>
+        </script>
+
+
+        <script
+            src="/WebResource.axd?d=eY2K3h03Uq-pR59n9yM1cGF3FPgApP0BbjN_2FOY8_3Qwa-Hiz7ymuilv4PvEWWdDuwh7kGAEDxxHdDHQSLGFZqYVYVFzWyuIUMfz3_1Wzs1&amp;t=637100862046795651"
+            type="text/javascript"></script>
+
+
+        <script
+            src="/WebResource.axd?d=kTbNgc_-dlOH2rDSiElRJHP7JX9WrYt92x0QtAOxIXzJ4Jg8VAnu0RFusTt5j6Kk732i2eoBW4V-FYcYbaWT37l-8VIYrAEoiDEFV3qCR-I1&amp;t=637100862046795651"
+            type="text/javascript"></script>
+        <div>
+
+            <input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="B4EBDE59" />
+            <input type="hidden" name="__VIEWSTATEENCRYPTED" id="__VIEWSTATEENCRYPTED" value="" />
+        </div>
+
+        <header class="header_box">
+            <div class="motif_header"></div>
+            <nav class="navbar main-navbar ">
+                <div class=" container-menu">
+                    <a class='menu-logo-lg' href='/home' title='Idaratut Tareef al Shakhsi'><img
+                            alt='Idaratut Tareef al Shakhsi' src='/assets/Logo_Nalasopara.png' /></a>
+                    <div class="profile-photo-menu-lg">
+                        {{!-- <img src="" id="Header1_imgPhoto" alt=""
+                            class="img-circle profile-image-small visible-lg visible-md visible-sm" /> --}}
+                    </div>
+                    <div class="navbar-header menu-header">
+                        <a class="menu-logo" href="/home" title='Idaratut Tareef al Shakhsi'><img
+                                alt='Idaratut Tareef al Shakhsi' src="/assets/ITS Designs/ITS_Logo_Header.png" /></a>
+                        <div class="profile-main_menu">
+                            <div class="profile-main" data-toggle="collapse" data-target="#profile-navbar">
+                                <div><img src="" id="Header1_imgPhotoMob" alt="Photo"
+                                        class="img-circle profile-photo-menu" /></div>
+                                <div>
+                                    <p class="header-text"><span id="Header1_lblITS_ID">20432049</span> | <span
+                                            id="Header1_lblName">{{user.name}}</span></p>
+                                </div>
+                            </div>
+                        </div>
+                        <button type="button" class="navbar-toggle menu-toggle-icon" data-toggle="collapse"
+                            data-target="#menu-navbar">
+                            <span><i class="material-icons">menu</i></span>
+                        </button>
+                    </div>
+    
+                    <!--Menu Navigation Links Collapse-->
+                    <div class="menu-left collapse navbar-collapse" id="menu-navbar">
+                        <p><span id="Header1_lblITS_ID_Mob">{{user.its}}</span> | <span id="Header1_lblNameMob">
+                                {{user.name}}</span></p>
+                        <span id="Header1_spnAdminLinks">
+                            <ul class='nav navbar-nav navbar-left'>
+                                <li><a role='button' href='/home'><i class='material-icons'>home</i> Home</a></li>
+                                <li><a role='button' href='/about.html'><i class='material-icons'>help</i> About</a></li>
+                                <li><a role='button' href='/gallery.html'><i class='material-icons'>filter</i>
+                                        Gallery</a></li>
+                                <li><a role='button' href='/news'><i class='material-icons'>insert_invitation</i>
+                                        News</a></li>
+                                <li><a role='button' href='/committee'><i class='material-icons'>people</i>
+                                        Committee</a></li>
+                                <li><a id='logout' href='/logout'><i class='material-icons'>power_settings_new</i> Logout</a>
+                                </li>
+                            </ul>
+                        </span>
+                    </div>
+                </div>
+            </nav>
+            <!-- Banner -->
+            <div id="Header1_dvBanner" class="hero-slider" data-carousel="">
+                <div class='carousel-cell'><img alt='Jamea al Anwar' class='img-lg img-responsive img-centered banner-big'
+                        src='assets/ITS Designs/Default_1443.jpg' /></div>
+            </div>
+            <div id="Header1_dvBannerMotif" class="motif-central-withBanner">&nbsp;</div>
+    
+        </header>
+        <div class='container'>
+            <div id="divBrowserAlert"></div>
+            <div id="divPopup" class="highslide-maincontent"></div>
+            <input name="hdLoginUser" type="hidden" id="hdLoginUser" value="20432049" />
+            <input name="hdLoginEmail" type="hidden" id="hdLoginEmail" value="hdhuliawala91@gmail.com" />
+
+
+            <div class="row">
+
+                    {{#each homeContents as |home|}}
+                <div id="divDUD21" class="col-md-4">
+                    <div class="row box boxspecial" id="BoxStartDUD21" style="">
+                        <span id="BoxStartDUD21_divHeading">
+                            <div class='col-xs-12 padTop10'>
+                                <h1>{{home.title}}</h1>
+                            </div>
+                            <div class='motif-central col-xs-12'>&nbsp;</div>
+                        </span>
+                        <div class='col-xs-12'>
+                            <div class="center">
+                                <a href="DataUpdateDrive/List.aspx" title="Data Update Drive 2021">
+                                    <img src="{{home.image}}" alt="Data Update Drive 2021"
+                                        class="img-responsive img-centered" style="height:170px;" />
+                                </a>
+                                <div class="center">
+                                    <span class="textred">{{home.description}}</span>
+                                </div>
+                                <br />
+
+                                {{!-- <a id="lnkDUD21" href="DataUpdateDrive/List.aspx" class="btnactive">Click here</a> --}}
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                {{/each}}
+
+                <!-- OneLogin -->
+                
+            </div><!-- Main Head Row -->
+
+        </div><!-- Container Closing -->
+
+
+        <script type="text/javascript">
+            //<![CDATA[
+            WebForm_AutoFocus('btnValidateOTP');//]]>
+        </script>
     </form>
-    </body>
+    <div id="Footer1_footer">
+        <script
+            type='text/javascript'>function googleTranslateElementInit() { new google.translate.TranslateElement({ pageLanguage: 'en', includedLanguages: 'ar,fr', layout: google.translate.TranslateElement.InlineLayout.SIMPLE, gaTrack: true, gaId: 'UA-50983018-1' }, 'google_translate_element'); }</script>
+        <script type='text/javascript'
+            src='//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit'></script>
+    </div>
+    <div id="Footer1_divLoading" class="footerloading">
+        <div class="footerloadingbox">
+            <img alt="Loading..." src="assets/loading.gif" /> Processing, please wait...
+        </div>
+    </div>
+
+    <div id="Footer1_divNormalUser">
+        <script>
+            function MenuSearchAutoComplete() {
+                var x;
+            }
+            $(document).ready(function () {
+                $("#Form1").on("contextmenu", function (e) {
+                    return false;
+                });
+                $("#form1").on("contextmenu", function (e) {
+                    return false;
+                });
+                $(document).keydown(function (event) {
+                    if (event.keyCode == 123)
+                        return false;
+                    else if ((event.ctrlKey && event.shiftKey && event.keyCode == 73) || (event.ctrlKey && event.shiftKey && event.keyCode == 74) || (event.ctrlKey && event.shiftKey))
+                        return false;
+                });
+            });
+        </script>
+    </div>
+    <i id="back-to-top" class="material-icons iconlight icon-container-square tooltips"
+        title="Go to Top">keyboard_double_arrow_up</i>
+    <footer class="footer_box">
+        <div class="grid footer_container footer__sections">
+            <section class="collapsible collapsible--expanded footer_section">
+                <div class="collapsible__header">
+                    <h2 class="collapsible_heading">CONTACT US</h2>
+                    <span class="collapsible__chevron material-icons icon-container">keyboard_arrow_down</span>
+                </div>
+                <div class="collapsible__content">
+                    <ul class="footer_list">
+                        <li><i class="material-icons icon-footer">call</i><a href="tel:+917058876795">+917058876795
+                                </a></li>
+                        <li><i class="material-icons icon-footer">mail_outline</i><a
+                                href="nallasoparajamat@gmail.com">nallasoparajamat@gmail.com</a></li>
+                        <li><i class="material-icons icon-footer">access_time</i><a href="#">10 AM - 5 PM IST</a></li>
+                        <li><i class="material-icons icon-footer">location_on</i><a href="https://www.google.com/maps/place/Badri+Masjid+-+Dawoodi+Bohra+Masjid/@19.4169074,72.8205204,15z/data=!4m19!1m13!4m12!1m4!2m2!1d72.8367104!2d19.41504!4e1!1m6!1m2!1s0x3be7a9441f755fa7:0xe9c65b74b56e9281!2sbadri+masjid+dawoodi+bohra+masjid!2m2!1d72.8220007!2d19.4173676!3m4!1s0x3be7a9441f755fa7:0xe9c65b74b56e9281!8m2!3d19.4173676!4d72.8220007">Locate
+                                Us</a></li>
+                    </ul>
+                </div>
+            </section>
+            <section class="collapsible footer_section">
+                <div class="collapsible__header">
+                    <h2 class="collapsible_heading">HELP</h2>
+                    <span class="collapsible__chevron material-icons icon-container">keyboard_arrow_down</span>
+                </div>
+                <div class="collapsible__content">
+                    <ul class="footer_list">
+                        <li><i class="material-icons icon-footer">people</i><a href="/Public/AboutITS.aspx">About us</a>
+                        </li>
+                        <li><i class="material-icons icon-footer">live_help</i><a href="/Public/FAQ.aspx">FAQs</a></li>
+                        <li><i class="material-icons icon-footer">feedback</i><a
+                                href="/Transactions/Feedback.aspx">Feedback</a></li>
+                        <li><i class="material-icons icon-footer">contacts</i><a href="/Public/Idara_Details.aspx">Idara
+                                Contact Details</a></li>
+                    </ul>
+                </div>
+            </section>
+            <section class="collapsible footer_section">
+                <div class="collapsible__header">
+                    {{!-- <h2 class="collapsible_heading">POLICIES</h2>
+                    <span class="collapsible__chevron material-icons icon-container">keyboard_arrow_down</span> --}}
+                </div>
+                <div class="collapsible__content">
+                    <ul class="footer_list">
+                        {{!-- <li><i class="material-icons icon-footer">policy</i><a href="assets/ITS_Privacy_Policy.pdf"
+                                target="_blank">Privacy
+                                Policy</a></li>
+                        <li><i class="material-icons icon-footer">policy</i><a href="assets/ITS_Cookie_Policy.pdf"
+                                target="_blank">Cookies
+                                Policy</a></li>
+                        <li><i class="material-icons icon-footer">policy</i><a
+                                href="https://www.its52.com/imgs/Policy/ITS_SMS_Opt_InOut_Policy.html"
+                                target="_blank">SMS Opt In/Out Policy</a></li>
+                        <li><i class="material-icons icon-footer">policy</i><a
+                                href="assets/ITS_MobileApplication_EndUser_Licence_Agreement.pdf"
+                                target="_blank">Mobile App License Agreement</a></li>
+                    </ul> --}}
+                </div>
+            </section>
+            <div class="footer_brand">
+                <a href="/MyMHP.aspx"><img src="assets/ITS_Logo_Footer.png?v1" /></a>
+            </div>
+            <section class="download_header">
+                <div class="collapsible__header">
+                    <h2 class="collapsible_heading">EXPERIENCE ITS ON</h2>
+                </div>
+                <div class="footer_app">
+                    <div class="footer_icons">
+                        <div class="footer_app_child">
+                            <a href="https://instagram.com/nalasopara_jamaat" target="_blank" class="tooltips"
+                                title="ITS Official Instagram Account">
+                                <img src="assets/instagram.png?v1" />
+                            </a>
+                        </div>
+                        <div class="footer_app_child">
+                            <a href="https://t.me/its52official" target="_blank" class="tooltips"
+                                title="ITS Official Telegram Account">
+                                <img src="assets/telegram.png?v1" />
+                            </a>
+                        </div>
+                        <div class="footer_app_child">
+                            <a href="https://play.google.com/store/apps/details?id=com.its52.pushnotifications"
+                                target="_blank" class="tooltips" title="Download ITS App from Google Playstore">
+                                <img src="assets/playstore.png?v1" />
+                            </a>
+                        </div>
+                        <div class="footer_app_child">
+                            <a href="https://itunes.apple.com/gb/app/its-app/id720041429?mt=8" target="_blank"
+                                class="tooltips" title="Download ITS App from Apple Store">
+                                <img src="assets/appstore.png?v1" />
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class='row text-center hide-translator'>
+                    <div id='google_translate_element'></div>
+                </div>
+            </section>
+            <div class="footer_copyright">
+                <span>Crafted by: ITS | © Idaratut Ta'reef al Shakshi | All Rights Reserved. | <a
+                        href="assets/ITS_Terms_Conditions.pdf" target="_blank"> Terms and
+                        Conditions </a></span>
+            </div>
+        </div>
+        <div class="motif_footer"></div>
+    </footer>
+    <div id="NoSession" class="center highslide-maincontent">
+        <h2 class="bold">Your Session has been Expired!</h2>
+        <hr style="margin-bottom:10px;margin-top:10px;" />
+        <div style="float:left;padding-left:10px;">
+            <img src="/GetImage.aspx?ID=tycypMj1cSo=" id="Footer1_imgUserPhoto" class="photo-small img-centered"
+                style="display:inline-block;visibility:visible !important;" alt="No Session" /><br />
+            <span id="Footer1_spnUserMuminID" class="lblejid">20432049</span>
+        </div>
+        <div>
+            <h4 id="Footer1_spnUserName">Saifuddin bhai Zainuddin bhai Dhuliawala</h4>
+            <span id="spnerrMsg" class="textred"></span><br />
+            <input name="Footer1$txtSessionPwd" type="password" id="Footer1_txtSessionPwd" placeholder="Password"
+                class="txtsmall" onkeypress="return doProcess(event)" />
+            <input name="Footer1$btnPwdValidate" type="button" id="Footer1_btnPwdValidate" value="Authenticate"
+                class="btn" onclick="javascript:this.value=&#39;Authenticating...&#39;;ValidatedPassword();"
+                style="width:110px;" />
+            <br />
+            <br />
+            <input name="Footer1$txtOTP" type="password" id="Footer1_txtOTP" placeholder="OTP" style="display:none;"
+                class="txtsmall" />
+            <input name="Footer1$btnOTPValidate" type="button" id="Footer1_btnOTPValidate" value="Authenticate"
+                style="display:none;width:110px;" class="btn"
+                onclick="javascript:this.value=&#39;Authenticating...&#39;;ValidatedOTP();" /><br />
+            <a href="/Logout.aspx" target="_self">Login with different user?</a>
+        </div>
+    </div>
+    <div id="NoInternet" class="center highslide-maincontent">
+        <i class='material-icons red' style='margin-top: -5px;font-size:172px;'>wifi_off</i>
+        <h1 class="red bold">No Internet Connection Found!</h1>
+        <small>Will resume automatically once Internet resume again.</small><br /><br />
+    </div>
+    <script>
+        //$('.count').each(function () { $(this).prop('Counter', 0).animate({ Counter: $(this).text().replace(/,/gi, "") }, { duration: 3000, easing: 'swing', step: function (now) { $(this).text(Math.ceil(now)).replace(/,/gi, ""); } }); });
+        try {
+            $(window).scroll(function () {
+                if ($(this).scrollTop() != 0)
+                    $('#back-to-top').fadeIn();
+                else
+                    $('#back-to-top').fadeOut();
+            });
+
+            $('#back-to-top').click(function () {
+                $('body,html').animate({ scrollTop: 0 }, 753);
+            });
+        }
+        catch (err) {
+            console.log("back top - " + err);
+        }
+
+        var rid;
+        function doProcess(e) {
+            if (e.keyCode == 13) {
+                ValidatedPassword();
+                return false;
+            }
+            return true;
+        }
+        function ValidatedPassword() {
+            document.getElementById("spnerrMsg").innerHTML = "";
+
+            if (document.getElementById("Footer1_txtSessionPwd").value == "") {
+                document.getElementById("spnerrMsg").innerHTML = "Enter Password!";
+                jQueryMsg('Enter Password!', 'Please enter password');
+                return false;
+            }
+
+            var xObj = false;
+            if (window.XMLHttpRequest)
+                xObj = new XMLHttpRequest();
+            else if (window.ActiveXObject)
+                xObj = new ActiveXObject("Microsoft.XMLHTTP");
+
+            if (xObj) {
+                xObj.open("GET", '/GetAjaxSession.aspx?QT=E2DZB&PWD=' + document.getElementById("Footer1_txtSessionPwd").value);
+                xObj.onreadystatechange = function () {
+                    if (xObj.readyState == 4 && xObj.status == 200 && xObj.responseXML != null) {
+                        if (xObj.responseXML.getElementsByTagName("IsValid").length > 0) {
+                            if (xObj.responseXML.getElementsByTagName("IsValid")[0].firstChild.data == "true") {
+                                document.getElementById("spnerrMsg").innerHTML = "<span class='textgreen'>Logged In Successfully!</span>";
+                                jQueryMsg('Success', 'Logged In Successfully!', 2);
+                            }
+                            else {
+                                document.getElementById("spnerrMsg").innerHTML = "Invalid Password!";
+                                jQueryMsg('Invalid Password!', 'Entered Invalid Password');
+                            }
+                        }
+                    }
+                }
+                xObj.send(null);
+            }
+        }
+        function SendOTP() {
+            document.getElementById("spnerrMsg").innerHTML = "";
+
+            var xObj = false;
+            if (window.XMLHttpRequest)
+                xObj = new XMLHttpRequest();
+            else if (window.ActiveXObject)
+                xObj = new ActiveXObject("Microsoft.XMLHTTP");
+
+            if (xObj) {
+                xObj.open("GET", '/GetAjaxSession.aspx?QT=U3UJT');
+                xObj.onreadystatechange = function () {
+                    if (xObj.readyState == 4 && xObj.status == 200 && xObj.responseXML != null) {
+                        if (xObj.responseXML.getElementsByTagName("OTP").length > 0) {
+                            document.getElementById("spnerrMsg").innerHTML = xObj.responseXML.getElementsByTagName("OTP")[0].firstChild.data;
+                            rid = xObj.responseXML.getElementsByTagName("Request_ID")[0].firstChild.data;
+                            if (rid == '0') {
+                                jQueryMsg('Secure Zone!', 'OTP not required', 2);
+                            }
+                            else {
+                                document.getElementById("Footer1_txtOTP").style.display = "";
+                                document.getElementById("Footer1_btnOTPValidate").style.display = "";
+                                document.getElementById("Footer1_btnGetOTP").style.display = "none";
+                            }
+                        }
+                    }
+                }
+                xObj.send(null);
+            }
+        }
+        function ValidatedOTP() {
+            document.getElementById("spnerrMsg").innerHTML = "";
+
+            if (document.getElementById("Footer1_txtOTP").value == "") {
+                document.getElementById("spnerrMsg").innerHTML = "Enter OTP!";
+                jQueryMsg('Enter OTP!', 'Please enter OTP');
+                return false;
+            }
+
+            var xObj = false;
+            if (window.XMLHttpRequest)
+                xObj = new XMLHttpRequest();
+            else if (window.ActiveXObject)
+                xObj = new ActiveXObject("Microsoft.XMLHTTP");
+
+            if (xObj) {
+                xObj.open("GET", '/GetAjaxSession.aspx?QT=B4MKY&OTP=' + document.getElementById("Footer1_txtOTP").value + '&RID=' + rid);
+                xObj.onreadystatechange = function () {
+                    if (xObj.readyState == 4 && xObj.status == 200 && xObj.responseXML != null) {
+                        if (xObj.responseXML.getElementsByTagName("IsValid").length > 0) {
+                            if (xObj.responseXML.getElementsByTagName("IsValid")[0].firstChild.data == "true") {
+                                jQueryMsg('Success', 'Logged In Successfully!', 2);
+                                document.getElementById("spnerrMsg").innerHTML = "<span class='textgreen'>Logged In Successfully!</span>";
+                            }
+                            else {
+                                document.getElementById("spnerrMsg").innerHTML = "Invalid OTP!";
+                                jQueryMsg('Invalid OTP!', 'OTP entered is incorrect');
+                            }
+                        }
+                    }
+                }
+                xObj.send(null);
+            }
+        }
+        //Session
+        var chkloop2 = 0;
+        function checkSession() {
+            var xXMLObj = false;
+            if (window.XMLHttpRequest)
+                xXMLObj = new XMLHttpRequest();
+            else if (window.ActiveXObject)
+                xXMLObj = new ActiveXObject("Microsoft.XMLHTTP");
+
+            if (xXMLObj) {
+                xXMLObj.open("GET", '/GetAjaxSession.aspx?QT=N1FBP');
+                xXMLObj.onreadystatechange = function () {
+                    if (xXMLObj.readyState == 4 && xXMLObj.status == 200 && xXMLObj.responseXML != null) {
+                        if (xXMLObj.responseXML.getElementsByTagName("Session_ID").length > 0) {
+
+                            if (xXMLObj.responseXML.getElementsByTagName("Session_ID")[0].firstChild.data == 1) {
+                                if (chkloop2 == 1) {
+                                    chkloop2 = 0;
+                                    hs.enableKeyListener = true;
+                                    hs.onDimmerClick = function () { return true; }
+                                    return hs.close(document.getElementById("NoSession"))
+                                }
+                            } else if (xXMLObj.responseXML.getElementsByTagName("Session_ID")[0].firstChild.data == 2) {
+                                window.location = '/Logout.aspx';
+                            }
+                            else {
+                                if (chkloop2 == 0) {
+                                    chkloop2 = 1;
+                                    hs.enableKeyListener = false;
+                                    hs.align = 'center';
+                                    hs.onDimmerClick = function () { return false; }
+                                    return hs.htmlExpand(document.getElementById("NoSession"), { allowWidthReduction: true, width: '600', maincontentId: 'NoSession', headingText: '', wrapperClassName: 'no-footer alertBox' })
+                                }
+                            }
+                        }
+                    }
+                }
+                xXMLObj.send(null);
+            }
+        }
+        //Internet
+        var chkloop1 = 0;
+    //     function checkInternet() {
+    //         jQuery.ajaxSetup({ async: false });
+    //         re = "";
+    //         r = Math.round(Math.random() * 10000);
+    //         r1 = Math.round(Math.random() * 1000);
+    //         url = "/imgs/1443/netping.gif?i=" + r;
+
+    //         $.get(url, { subins: r1 }, function (d) {
+    //             re = true;
+    //         }).error(function () {
+    //             re = false;
+    //         });
+
+    //         if (re == true) {
+    //             if (chkloop1 == 1) {
+    //                 chkloop1 = 0;
+    //                 hs.enableKeyListener = true;
+    //                 hs.onDimmerClick = function () { return true; }
+    //                 return hs.close(document.getElementById("NoInternet"))
+    //             }
+    //         }
+    //         else if (re == false) {
+    //             if (chkloop1 == 0) {
+    //                 chkloop1 = 1;
+    //                 hs.enableKeyListener = false;
+    //                 hs.align = 'center';
+    //                 hs.onDimmerClick = function () { return false; }
+    //                 return hs.htmlExpand(document.getElementById("NoInternet"), { allowWidthReduction: true, width: '700', maincontentId: 'NoInternet', headingText: '', wrapperClassName: 'no-footer alertBox' })
+    //             }
+    //         }
+    //     }
+    </script>
+    <script src='js/highslide-full.js' language='javascript' type='text/javascript'></script>
+
+</body>
+
 </html>
+

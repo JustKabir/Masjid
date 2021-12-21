@@ -12,7 +12,8 @@ exports.homeCreate_post = (req, res)=>{
     try{
         const home = new Home({
             description: req.body.description,
-            image: req.file.path
+            image: req.file.path,
+            title: req.body.title
         });
         home.save();
         return res.send('success')

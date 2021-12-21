@@ -14,13 +14,13 @@ exports.login_get = (req, res)=>{
 }
 
 exports.login_post = async(req, res)=>{
-    console.log(req.body.id)
-    console.log(req.body.password)
-    const player = User.findOne({its: req.body.id})
+    console.log(req.body.txtUserName)
+    console.log(req.body.txtPassword)
+    const player = User.findOne({its: req.body.txtUserName})
     .then(async (result)=>{
         if(result){
             // console.log(result)
-            if(await bcrypt.compare(req.body.password, result.password)){
+            if(await bcrypt.compare(req.body.txtPassword, result.password)){
                 var key = process.env.ACCESS_TOKEN_SECRET
                 const user = result.toJSON();
             const accessToken = jwt.sign(user, key, {
@@ -49,4 +49,9 @@ exports.login_post = async(req, res)=>{
 exports.logout_post = (req,res)=>{
     res.cookie('jwtToken', '', {maxAge: 1});
     return res.redirect('/');
+}
+exports.com = (req,res)=>{
+    // res.cookie('jwtToken', '', {maxAge: 1});
+    const user = req.user
+    return res.render('committee', {user} );
 }
